@@ -19,7 +19,7 @@ public class MainActivity extends Activity {
 		// Set up grid view
 		
 		GridView gridview = (GridView) findViewById(R.id.gridview);
-		//gridview.setAdapter(new IconAdapter(this));    // deprecated KA
+		//gridview.setAdapter(new IconAdapter(this));    // deprecated
 		gridview.setAdapter(new IconAdapterXML(this));
 
 	    gridview.setOnItemClickListener(new OnItemClickListener() {
