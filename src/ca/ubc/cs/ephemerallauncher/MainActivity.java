@@ -1,13 +1,16 @@
 package ca.ubc.cs.ephemerallauncher;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.AdapterView;
-import android.widget.GridView;
-import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -25,8 +28,21 @@ public class MainActivity extends Activity {
 	    gridview.setOnItemClickListener(new OnItemClickListener() {
 	        public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 	            Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+	            //v.setVisibility(View.GONE);
 	        }
 	    });
+	    
+	    /*Registering a global layout listener
+	    so that startInteraction is invoked when gridView is loaded completely*/
+	    
+	    gridview.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+	    	public void onGlobalLayout() {
+	    		startInteraction();
+	    	}
+	    });
+	    
+	    
+
 	}
 
 	@Override
@@ -34,6 +50,22 @@ public class MainActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+	
+	public void startInteraction() {
+		GridView gridview = (GridView) findViewById(R.id.gridview);
+		gridview.getChildAt(0).setAlpha((float)0.5);
+		/*int size = gridview.getChildCount();
+	    for(int i = 0; i < size; i++) {
+	      ViewGroup gridChild = (ViewGroup) gridview.getChildAt(i);
+	      gridChild.setVisibility(View.GONE);
+	      int childSize = gridChild.getChildCount();
+	      for(int k = 0; k < childSize; k++) {
+	        if( gridChild.getChildAt(k) instanceof ImageView ) {
+	          gridChild.getChildAt(k).setVisibility(View.GONE);
+	        }
+	      }
+	    }*/
 	}
 
 }
