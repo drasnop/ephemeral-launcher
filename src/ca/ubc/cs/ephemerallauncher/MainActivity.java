@@ -10,6 +10,7 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -73,9 +74,14 @@ public class MainActivity extends Activity {
 	public void testAnimation() {
 		GridView gridview = (GridView) findViewById(R.id.gridview);
 		ViewGroup firstChild = (ViewGroup) gridview.getChildAt(0);
-		ObjectAnimator anim = ObjectAnimator.ofFloat(firstChild, "alpha", 0f, 1f);
-		anim.setDuration(3000);
-		anim.start();
+		ImageView coloredImage = ((ImageView) ((ViewGroup) firstChild.getChildAt(0)).getChildAt(0));
+		ImageView gsImage = ((ImageView) ((ViewGroup) firstChild.getChildAt(0)).getChildAt(1));
+		ObjectAnimator animColor = ObjectAnimator.ofFloat(coloredImage, "alpha", 0f, 1f);
+		ObjectAnimator animGs = ObjectAnimator.ofFloat(gsImage, "alpha", 1f, 0f);
+		animColor.setDuration(3000);
+		animGs.setDuration(3000);
+		animColor.start();
+		animGs.start();
 		
 	}
 

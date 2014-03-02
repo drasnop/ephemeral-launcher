@@ -35,13 +35,17 @@ public class IconAdapterXML extends BaseAdapter {
 		if (convertView == null) {
 			// if it's not recycled, initialize some attributes
 			iconView = (LinearLayout) LayoutInflater.from(mContext).inflate(
-					R.layout.icon_with_caption, null);
+					R.layout.icon_with_caption_relative, null);
 		} else {
 			iconView = (LinearLayout) convertView;
 		}
 
 		ImageView icon = (ImageView) iconView.findViewById(R.id.icon);
 		icon.setImageResource(mThumbIds[position]);
+		
+		ImageView icon_gs = (ImageView) iconView.findViewById(R.id.icon_gs);
+		if (position < 2) {
+			icon_gs.setImageResource(gs_mThumbIds[position]); }
 
 		TextView caption = (TextView) iconView.findViewById(R.id.caption);
 		caption.setText("caption");
@@ -50,6 +54,8 @@ public class IconAdapterXML extends BaseAdapter {
 	}
 
 	// references to our images
+	private Integer[] gs_mThumbIds = {R.drawable.icon_0_gs, R.drawable.icon_1_gs};
+	
 	private Integer[] mThumbIds = { R.drawable.icon_0, R.drawable.icon_1,
 			R.drawable.icon_2, R.drawable.icon_3, R.drawable.icon_4,
 			R.drawable.icon_5, R.drawable.icon_6, R.drawable.icon_7,
