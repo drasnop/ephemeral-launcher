@@ -1,5 +1,6 @@
 package ca.ubc.cs.ephemerallauncher;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,7 +10,6 @@ import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -53,8 +53,10 @@ public class MainActivity extends Activity {
 	}
 	
 	public void startInteraction() {
-		GridView gridview = (GridView) findViewById(R.id.gridview);
-		gridview.getChildAt(0).setAlpha((float)0.5);
+		
+		testAnimation();
+		//GridView gridview = (GridView) findViewById(R.id.gridview);
+		//gridview.getChildAt(0).setAlpha(0.5f);
 		/*int size = gridview.getChildCount();
 	    for(int i = 0; i < size; i++) {
 	      ViewGroup gridChild = (ViewGroup) gridview.getChildAt(i);
@@ -66,6 +68,15 @@ public class MainActivity extends Activity {
 	        }
 	      }
 	    }*/
+	}
+	
+	public void testAnimation() {
+		GridView gridview = (GridView) findViewById(R.id.gridview);
+		ViewGroup firstChild = (ViewGroup) gridview.getChildAt(0);
+		ObjectAnimator anim = ObjectAnimator.ofFloat(firstChild, "alpha", 0f, 1f);
+		anim.setDuration(3000);
+		anim.start();
+		
 	}
 
 }
