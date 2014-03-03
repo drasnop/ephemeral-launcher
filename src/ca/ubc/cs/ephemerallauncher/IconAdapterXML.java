@@ -40,13 +40,19 @@ public class IconAdapterXML extends BaseAdapter {
 			iconView = (LinearLayout) convertView;
 		}
 
+		//The colored image
 		ImageView icon = (ImageView) iconView.findViewById(R.id.icon);
 		icon.setImageResource(mThumbIds[position]);
+		icon.setAlpha(0f);
 		
+		
+		//The grayscale image
 		ImageView icon_gs = (ImageView) iconView.findViewById(R.id.icon_gs);
-		if (position < 2) {
-			icon_gs.setImageResource(gs_mThumbIds[position]); }
+		icon_gs.setImageResource(gs_mThumbIds[position]); 
+		icon_gs.setAlpha(1f);
+		
 
+		//The caption
 		TextView caption = (TextView) iconView.findViewById(R.id.caption);
 		caption.setText("caption");
 
@@ -54,7 +60,13 @@ public class IconAdapterXML extends BaseAdapter {
 	}
 
 	// references to our images
-	private Integer[] gs_mThumbIds = {R.drawable.icon_0_gs, R.drawable.icon_1_gs};
+	private Integer[] gs_mThumbIds = {R.drawable.icon_0_gs, R.drawable.icon_1_gs,
+			R.drawable.icon_2_gs, R.drawable.icon_3_gs, R.drawable.icon_4_gs,
+			R.drawable.icon_5_gs, R.drawable.icon_6_gs, R.drawable.icon_7_gs,
+			R.drawable.icon_8_gs, R.drawable.icon_9_gs, R.drawable.icon_10_gs,
+			R.drawable.icon_11_gs, R.drawable.icon_12_gs, R.drawable.icon_13_gs,
+			R.drawable.icon_14_gs, R.drawable.icon_15_gs, R.drawable.icon_16_gs,
+		    R.drawable.icon_17_gs, R.drawable.icon_18_gs, R.drawable.icon_19_gs};
 	
 	private Integer[] mThumbIds = { R.drawable.icon_0, R.drawable.icon_1,
 			R.drawable.icon_2, R.drawable.icon_3, R.drawable.icon_4,
