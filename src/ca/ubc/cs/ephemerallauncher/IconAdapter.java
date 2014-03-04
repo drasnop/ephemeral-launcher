@@ -9,15 +9,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class IconAdapterXML extends BaseAdapter {
+public class IconAdapter extends BaseAdapter {
 	private Context mContext;
 
-	public IconAdapterXML(Context c) {
+	public IconAdapter(Context c) {
 		mContext = c;
 	}
 
 	public int getCount() {
-		return Resources.mThumbIds.length;
+		return Parameters.icons.length;
 	}
 
 	public Object getItem(int position) {
@@ -28,7 +28,7 @@ public class IconAdapterXML extends BaseAdapter {
 		return 0;
 	}
 
-	// create a new ImageView for each item referenced by the Adapter
+	// create a new View for each item referenced by the Adapter
 	public View getView(int position, View convertView, ViewGroup parent) {
 		LinearLayout iconView;
 
@@ -42,13 +42,13 @@ public class IconAdapterXML extends BaseAdapter {
 
 		//The colored image
 		ImageView icon = (ImageView) iconView.findViewById(R.id.icon);
-		icon.setImageResource(Resources.mThumbIds[position]);
+		icon.setImageResource(Parameters.icons[position]);
 		icon.setAlpha(0f);
 		
 		
 		//The grayscale image
 		ImageView icon_gs = (ImageView) iconView.findViewById(R.id.icon_gs);
-		icon_gs.setImageResource(Resources.gs_mThumbIds[position]); 
+		icon_gs.setImageResource(Parameters.icons_gs[position]); 
 		icon_gs.setAlpha(1f);
 		
 
