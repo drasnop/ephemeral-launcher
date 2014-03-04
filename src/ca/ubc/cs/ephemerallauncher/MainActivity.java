@@ -1,9 +1,12 @@
 package ca.ubc.cs.ephemerallauncher;
 
+import ca.ubc.cs.ephemerallauncher.R;
+
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -12,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -21,6 +25,7 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -61,7 +66,13 @@ public class MainActivity extends Activity {
 	
 	public void startInteraction() {
 		
-		testAnimation();
+	//	testAnimation();
+		GridView gridview = (GridView) findViewById(R.id.gridview);
+		ImageView icon0 = (ImageView) gridview.getChildAt(0);  
+	    Animation anim=AnimationUtils.loadAnimation(this, R.anim.size);
+	    icon0.setAnimation(anim);
+	    icon0.startAnimation(anim);
+		
 		//GridView gridview = (GridView) findViewById(R.id.gridview);
 		//gridview.getChildAt(0).setAlpha(0.5f);
 		/*int size = gridview.getChildCount();
@@ -92,6 +103,7 @@ public class MainActivity extends Activity {
 		crossfade((ViewGroup) gridview.getChildAt(12), false, duration, 0);
 		crossfade((ViewGroup) gridview.getChildAt(18), false, duration, 0);
 		crossfade((ViewGroup) gridview.getChildAt(17), false, duration, 0);
+		
 		
 		long delay = 3*duration;
 		crossfade((ViewGroup) gridview.getChildAt(1), true, duration, delay);
