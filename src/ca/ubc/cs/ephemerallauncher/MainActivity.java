@@ -1,5 +1,6 @@
 package ca.ubc.cs.ephemerallauncher;
 
+import android.R.integer;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -61,7 +62,7 @@ public class MainActivity extends Activity {
 
 	public void startInteraction() {
 
-		testAnimation();
+		testAnimation2();
 		// GridView gridview = (GridView) findViewById(R.id.gridview);
 		// gridview.getChildAt(0).setAlpha(0.5f);
 		/*
@@ -74,6 +75,23 @@ public class MainActivity extends Activity {
 		 */
 	}
 
+	public void testAnimation2() {
+		int highlightedIcons=5;
+		int duration = 3000;
+		
+		GridView gridview = (GridView) findViewById(R.id.gridview);
+		int iconsCount = gridview.getChildCount();
+		
+		int iconIndex;
+		for(int i=0; i<highlightedIcons; i++){
+			iconIndex=(int) Math.floor(Math.random()*iconsCount);
+			crossfade((ViewGroup) gridview.getChildAt(iconIndex), false, 0, 0);
+		}
+		
+		allCrossfade(false,duration,0);		
+	}
+	
+	
 	public void testAnimation() {
 
 		// allCrossfade();
@@ -111,14 +129,12 @@ public class MainActivity extends Activity {
 
 	}
 
-	public void allCrossfade(int duration_ms) {
+	public void allCrossfade(final boolean reverse, long duration_ms, long start_delay_ms) {
 		GridView gridview = (GridView) findViewById(R.id.gridview);
 		int size = gridview.getChildCount();
-		long delay = 0;
 
 		for (int i = 0; i < size; i++) {
-
-			crossfade((ViewGroup) gridview.getChildAt(i), false, duration_ms, delay);
+			crossfade((ViewGroup) gridview.getChildAt(i), reverse, duration_ms, start_delay_ms);
 		}
 
 	}
