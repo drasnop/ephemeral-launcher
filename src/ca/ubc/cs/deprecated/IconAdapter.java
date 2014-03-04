@@ -1,5 +1,8 @@
-package ca.ubc.cs.ephemerallauncher;
+package ca.ubc.cs.deprecated;
 
+import ca.ubc.cs.ephemerallauncher.R;
+import ca.ubc.cs.ephemerallauncher.R.color;
+import ca.ubc.cs.ephemerallauncher.R.drawable;
 import android.content.Context;
 import android.view.Gravity;
 import android.view.View;
