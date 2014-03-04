@@ -1,5 +1,7 @@
-package ca.ubc.cs.ephemerallauncher;
+package ca.ubc.cs.deprecated;
 
+import ca.ubc.cs.ephemerallauncher.R;
+import ca.ubc.cs.ephemerallauncher.R.drawable;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
