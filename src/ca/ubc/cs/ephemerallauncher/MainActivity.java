@@ -1,56 +1,46 @@
 package ca.ubc.cs.ephemerallauncher;
 
-import android.R.integer;
+import java.util.ArrayList;
+
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
 import android.view.Menu;
-import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver.OnGlobalLayoutListener;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.Animation.AnimationListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-public class MainActivity extends Activity {
 
+public class MainActivity extends FragmentActivity {
+
+    static final int NUM_PAGES = 2;
+
+    PagerAdapter pagerAdapter;
+    ViewPager pager;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
 
-		// Set up grid view
-
-		GridView gridview = (GridView) findViewById(R.id.gridview);
-		// gridview.setAdapter(new IconAdapter(this)); // deprecated
-		gridview.setAdapter(new IconAdapterXML(this));
-
-		gridview.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-				Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
-				// v.setVisibility(View.GONE);
-			}
-		});
-
-		/*
-		 * Registering a global layout listener so that startInteraction is
-		 * invoked when gridView is loaded completely
-		 */
-
-		gridview.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
-			public void onGlobalLayout() {
-				startInteraction();
-			}
-		});
-
+        // Set up pager view
+		setContentView(R.layout.pager);
+		pager = (ViewPager)findViewById(R.id.pager);
+		
+		// Create grid views for each page
+		Page page1 = new Page(this);
+		Page page2 = new Page(this);
+		
+		// Add them to the pagerAdapter
+		ArrayList<Page> pages=new ArrayList<Page>();
+		pages.add(page1);
+		pages.add(page2);
+		pagerAdapter = new PagerAdapter(getSupportFragmentManager(),pages);
+		
+		// populate pager
+        pager.setAdapter(pagerAdapter);
 	}
 
 	@Override
@@ -139,7 +129,7 @@ public class MainActivity extends Activity {
 
 	}
 
-	public void crossfade(ViewGroup frame, final boolean reverse, long duration_ms, long start_delay_ms) {
+	public static void crossfade(ViewGroup frame, final boolean reverse, long duration_ms, long start_delay_ms) {
 		final ImageView coloredImage = ((ImageView) ((ViewGroup) frame.getChildAt(0)).getChildAt(0));
 		final ImageView gsImage = ((ImageView) ((ViewGroup) frame.getChildAt(0)).getChildAt(1));
 
