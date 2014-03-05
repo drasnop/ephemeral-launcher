@@ -5,9 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 public class IconAdapter extends BaseAdapter {
 	private Context mContext;
@@ -27,34 +24,30 @@ public class IconAdapter extends BaseAdapter {
 	public long getItemId(int position) {
 		return 0;
 	}
-	
+
 	// create a new View for each item referenced by the Adapter
 	public View getView(int position, View convertView, ViewGroup parent) {
-		LinearLayout iconWithCaption;
+		Icon icon;
 
 		if (convertView == null) {
-			// if it's not recycled, initialize some attributes
-			iconWithCaption = (LinearLayout) LayoutInflater.from(mContext).inflate(R.layout.icon_with_caption_relative, null);
+			// if it's not recycled, initialize the view
+			// [AP: I don't really understand this test...]
+			icon = (Icon) LayoutInflater.from(mContext).inflate(R.layout.icon, null);
 		} else {
-			iconWithCaption = (LinearLayout) convertView;
+			icon = (Icon) convertView;
 		}
 
-		// 
-		
-		// The colored image
-		ImageView icon = (ImageView) iconWithCaption.findViewById(R.id.image);
-		icon.setImageResource(Parameters.images[position]);
-		icon.setAlpha(0f);
+		// Set up the colored image
+		icon.image().setImageResource(Parameters.images[position]);
+		icon.image().setAlpha(0f);
 
-		// The grayscale image
-		ImageView icon_gs = (ImageView) iconWithCaption.findViewById(R.id.image_gs);
-		icon_gs.setImageResource(Parameters.images_gs[position]);
-		icon_gs.setAlpha(1f);
+		// Set up the greyscale image
+		icon.image_gs().setImageResource(Parameters.images_gs[position]);
+		icon.image_gs().setAlpha(1f);
 
 		// The caption
-		TextView caption = (TextView) iconWithCaption.findViewById(R.id.caption);
-		caption.setText("caption");
+		icon.caption().setText("caption");
 
-		return iconWithCaption;
+		return icon;
 	}
 }
