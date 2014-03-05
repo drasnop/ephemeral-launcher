@@ -18,7 +18,7 @@ import android.view.ViewGroup;
 public class Page extends Fragment {
 
 	private Context mContext;
-	private TemporalColorGridView gridview;
+	public TemporalColorGridView gridview;//private to public
 	
 	public Page(Context c){
 		mContext=c;
@@ -49,21 +49,21 @@ public class Page extends Fragment {
 		});*/
 		
 		//test for menu tap
-		/*gridview.setOnTouchListener(new OnTouchListener() {
+		gridview.setOnTouchListener(new OnTouchListener() {
 		    public boolean onTouch(View v, MotionEvent event) {
 		    	startInteraction();
 				return true;
 		    }
-		});*/
+		});
 		
 		return gridview;
 	}
 	
-	/* 
+	
 	public void startInteraction() {
 		temporalColorAnimation();
 	}
-*/
+
 	public void temporalColorAnimation() {
 		int highlightedIcons=4;
 		int duration = 1000;

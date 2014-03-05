@@ -6,8 +6,9 @@ import java.util.ArrayList;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.view.Menu;  //test
-import android.view.MenuItem; //test
+import android.view.Menu;  
+import android.view.MenuItem; 
+
 
 public class MainActivity extends FragmentActivity {
 
@@ -51,7 +52,7 @@ public class MainActivity extends FragmentActivity {
 	        case R.id.action_temporal:
 	        	// need to add more, if there are more pages
 	        	((Page) pagerAdapter.getItem(0)).temporalColorAnimation();
-	        	((Page) pagerAdapter.getItem(1)).temporalColorAnimation();
+	        	//((Page) pagerAdapter.getItem(1)).temporalColorAnimation();
 	            return true;
 	        case R.id.action_highlight2:
 	            //composeMessage();
