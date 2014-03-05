@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ca.ubc.cs.ephemerallauncher.Icon xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="85dp"
     android:layout_height="85dp"
     android:orientation="vertical" >
 
-    <!-- android:background="@color/lightblue" > -->
 	<FrameLayout
 	android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <ImageView
-        android:id="@+id/icon"
+        android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:gravity="center_horizontal" />
     <ImageView
-        android:id="@+id/icon_gs"
+        android:id="@+id/image_gs"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:gravity="center_horizontal" />
-        
-    <!-- android:src="@drawable/icon_0" />  -->
-    <!-- android:adjustViewBounds="true" /> -->
+      
     </FrameLayout>
 
     <TextView
@@ -28,9 +25,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:gravity="center_horizontal"
-        android:text="caption" />
-    <!-- android:background="@color/darkblue" /> -->
-    <!-- android:adjustViewBounds="true" /> -->
+        android:gravity="center_horizontal" />
 
-</LinearLayout>
+</ca.ubc.cs.ephemerallauncher.Icon>
