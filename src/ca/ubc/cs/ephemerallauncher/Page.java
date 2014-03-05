@@ -9,16 +9,16 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.GridView;
-import android.widget.Toast;
 
+
+/* One page of the "launcher", containing exactly one gridview of icons
+*  This class calls the animations appropriate for each event (e.g, swipe)
+*/
 @SuppressLint("ValidFragment")
 public class Page extends Fragment {
 
 	private Context mContext;
-	private GridView gridview;
+	private TemporalColorGridView gridview;
 	
 	public Page(Context c){
 		mContext=c;
@@ -29,31 +29,20 @@ public class Page extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		
-		// Inflate the grid layout for this fragment	
-		this.gridview = (GridView) inflater.inflate(R.layout.grid, container, false);
-		
-		gridview.setAdapter(new IconAdapter(mContext));
+		// Inflate the grid layout for this fragment, then populates it with icons	
+		this.gridview = (TemporalColorGridView) inflater.inflate(R.layout.temporal_color_grid, container, false);
+		gridview.init(mContext);
 
-		gridview.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-				Toast.makeText(mContext, "" + position, Toast.LENGTH_SHORT).show();
-				// v.setVisibility(View.GONE);
-			}
-		});
-
-		/*
-		 * Registering a global layout listener so that startInteraction is
-		 * invoked when gridView is loaded completely
-		 */
-
-/*		gridview.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+/*		
+  		// Registering a global layout listener so that startInteraction is
+		// invoked when gridView is loaded completely
+  		gridview.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
 			public void onGlobalLayout() {
 				startInteraction();
 			}
 		});
-		*/
 
-/*		gridview.getViewTreeObserver().addOnDrawListener(new OnDrawListener() {
+		gridview.getViewTreeObserver().addOnDrawListener(new OnDrawListener() {
 			public void onDraw() {
 				startInteraction();
 			}
@@ -78,21 +67,20 @@ public class Page extends Fragment {
 		int highlightedIcons=4;
 		int duration = 1000;
 		
-		int iconsCount = gridview.getChildCount();
+		int count = gridview.getChildCount();
 		
-		int iconIndex;
+		int index;
 		for(int i=0; i<highlightedIcons; i++){
-			iconIndex=(int) Math.floor(Math.random()*iconsCount);
-			Effects.crossfade((ViewGroup) gridview.getChildAt(iconIndex), false, 0, 0);
+			index=(int) Math.floor(Math.random()*count);
+			Effects.crossfade((ViewGroup) gridview.getChildAt(index), false, 0, 0);
+			//TODO: replace with gridview.changeToColor(index)
 		}
 		
-		allCrossfade(false,duration,0);		
+		allCrossfade(false,duration,0);
+		// TODO: replace with: gridview.fadeAllToColor(duration,delay,false)
 	}
 	
-	public static void changeAllToGreyscale(){};
-	
-	public static void fadeAllToColor(){};
-	
+	// TODO: move this method to TemporalColorGridView
 	public void allCrossfade(final boolean reverse, long duration_ms, long start_delay_ms) {
 		int size = gridview.getChildCount();
 
