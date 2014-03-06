@@ -23,9 +23,10 @@ public class TemporalColorGridView extends GridView {
 		super(context, attrs, defStyle);
 	}
 
+	/////////   Public methods
 	
-	public void init(final Context mContext){
-		
+	public void init(final Context mContext) {
+
 		this.setAdapter(new IconAdapter(mContext));
 
 		this.setOnItemClickListener(new OnItemClickListener() {
@@ -36,40 +37,38 @@ public class TemporalColorGridView extends GridView {
 		});
 	}
 	
-	public void startEphemeralAnimation(){
+	public void startEphemeralAnimation() {
 		int position;
-		int count=this.getChildCount();
-		for(int i=0; i<Parameters.NUM_HIGHLIGHTED_ICONS; i++){
-			position=(int) Math.floor(Math.random()*count);
+		int count = this.getChildCount();
+		for (int i = 0; i < Parameters.NUM_HIGHLIGHTED_ICONS; i++) {
+			position = (int) Math.floor(Math.random() * count);
 			changeToColor(position);
 		}
-		
-		fadeAllToColor(true);	// false!!!!!!!!!!!!!!!!!!!!!!!!!
+
+		fadeAllToColor();
 	}
-	
-	public void backToPreAnimationState(){
+
+	public void backToPreAnimationState() {
 		changeAllToGreyScale();
 	}
+
+	////////	Private helper functions
 	
-	
-	private void changeToColor(int position){
+	private void changeToColor(int position) {
 		Effects.changeToColor((Icon) this.getChildAt(position));
 	}
-	
-	private void changeAllToGreyScale(){
+
+	private void changeAllToGreyScale() {
 		for (int i = 0; i < this.getChildCount(); i++) {
 			Effects.changeToGreyScale((Icon) this.getChildAt(i));
 		}
-	}	
-	
-	// If force==true, play the animation also for the icons that are already colored 
-	// which will turn them back to greyscale before fading in the color
-	// If force==false, the icons already colored are excluded
-	private void fadeAllToColor(boolean force){
-		if(force){
-			for (int i = 0; i < this.getChildCount(); i++) {
-				Effects.changeToColor((Icon) this.getChildAt(i),Parameters.FADE_IN_DURATION__COLOR,Parameters.START_DELAY__COLOR);
-			}
+	}
+
+	private void fadeAllToColor() {
+		for (int i = 0; i < this.getChildCount(); i++) {
+			Effects.changeToColor((Icon) this.getChildAt(i), Parameters.FADE_IN_DURATION__COLOR,
+					Parameters.START_DELAY__COLOR);
+
 		}
 	}
 }
