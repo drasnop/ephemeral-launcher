@@ -24,7 +24,7 @@ public class Effects {
 		changeToColor(icon, 0);
 	}
 
-	//-----KZ
+	// could be incorporated into animateObjectProperty
 	public static void changeToSize(Icon icon) {
 		icon.getGsImage().animate().alpha(0).start();
 	

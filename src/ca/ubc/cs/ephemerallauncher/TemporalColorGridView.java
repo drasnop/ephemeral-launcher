@@ -40,19 +40,16 @@ public class TemporalColorGridView extends GridView {
 
 	public void startEphemeralAnimation(String effect){
 		int position;
-/*=======
-	public void startEphemeralAnimation() {
->>>>>>> branch 'master' of https://bitbucket.org/lafite/554m-ephemeral-launcher
-		
-<<<<<<< HEAD*/
 		int count=this.getChildCount();
+		
 		for(int i=0; i<Parameters.NUM_HIGHLIGHTED_ICONS; i++){
 			position=(int) Math.floor(Math.random()*count);
-			// KZ
+			
 			if (effect == "color") changeToColor(position);
-			else changeToSize(position);
+			if (effect == "size") changeToSize(position);
+			//else
 		}
-		//fadeAllToColor(true);	// false!!!!!!!!!!!!!!!!!!!!!!!!!
+
 		fadeAllToColor();
 	}
 
