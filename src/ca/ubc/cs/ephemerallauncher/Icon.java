@@ -21,11 +21,11 @@ public class Icon extends LinearLayout{
 	}
 
 	
-	public ImageView image(){
+	public ImageView getImage(){
 		return (ImageView) this.findViewById(R.id.image);
 	}
 	
-	public ImageView image_gs(){
+	public ImageView getGsImage(){
 		return (ImageView) this.findViewById(R.id.image_gs);
 	}
 	

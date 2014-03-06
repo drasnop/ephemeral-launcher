@@ -73,21 +73,22 @@ public class Page extends Fragment {
 		int index;
 		for(int i=0; i<highlightedIcons; i++){
 			index=(int) Math.floor(Math.random()*count);
-			Effects.crossfade((ViewGroup) gridview.getChildAt(index), false, 0, 0);
+			Effects.changeToColor((Icon) gridview.getChildAt(index), 0);
 			//TODO: replace with gridview.changeToColor(index)
 		}
 		
-		allCrossfade(false,duration,0);
+		changeAllToColor(duration);
 		// TODO: replace with: gridview.fadeAllToColor(duration,delay,false)
 	}
 	
+	
 	// TODO: move this method to TemporalColorGridView
-	public void allCrossfade(final boolean reverse, long duration_ms, long start_delay_ms) {
+	public void changeAllToColor(long durationMs){
 		int size = gridview.getChildCount();
 
 		for (int i = 0; i < size; i++) {
-			Effects.crossfade((ViewGroup) gridview.getChildAt(i), reverse, duration_ms, start_delay_ms);
+			Effects.changeToColor((Icon) gridview.getChildAt(i), durationMs);
 		}
-
+		
 	}
 }

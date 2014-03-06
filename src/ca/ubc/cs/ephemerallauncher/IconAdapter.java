@@ -38,12 +38,12 @@ public class IconAdapter extends BaseAdapter {
 		}
 
 		// Set up the colored image
-		icon.image().setImageResource(Parameters.images[position]);
-		icon.image().setAlpha(0f);
+		icon.getImage().setImageResource(Parameters.images[position]);
+		//icon.image().setAlpha(0f);
 
 		// Set up the greyscale image
-		icon.image_gs().setImageResource(Parameters.images_gs[position]);
-		icon.image_gs().setAlpha(1f);
+		icon.getGsImage().setImageResource(Parameters.images_gs[position]);
+		//icon.image_gs().setAlpha(1f);
 
 		// The caption
 		icon.caption().setText("caption");
