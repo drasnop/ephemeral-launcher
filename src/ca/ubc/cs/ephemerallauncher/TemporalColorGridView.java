@@ -36,15 +36,17 @@ public class TemporalColorGridView extends GridView {
 		});
 	}
 	
-	public void startEphemeralAnimation(){
+	public void startEphemeralAnimation(String effect){
 		int position;
 		int count=this.getChildCount();
 		for(int i=0; i<Parameters.NUM_HIGHLIGHTED_ICONS; i++){
 			position=(int) Math.floor(Math.random()*count);
-			changeToColor(position);
+			// KZ
+			if (effect == "color") changeToColor(position);
+			else changeToSize(position); 
 		}
 		
-		fadeAllToColor(true);	// false!!!!!!!!!!!!!!!!!!!!!!!!!
+		//fadeAllToColor(true);	// false!!!!!!!!!!!!!!!!!!!!!!!!!
 	}
 	
 	public void backToPreAnimationState(){
@@ -61,6 +63,11 @@ public class TemporalColorGridView extends GridView {
 			Effects.changeToGreyScale((Icon) this.getChildAt(i));
 		}
 	}	
+	
+	//--------KZ
+	private void changeToSize(int position){
+		Effects.changeToSize((Icon) this.getChildAt(position));
+	}
 	
 	// If force==true, play the animation also for the icons that are already colored 
 	// which will turn them back to greyscale before fading in the color

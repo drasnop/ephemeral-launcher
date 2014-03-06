@@ -51,7 +51,7 @@ public class Page extends Fragment {
 		//test for menu tap
 		gridview.setOnTouchListener(new OnTouchListener() {
 		    public boolean onTouch(View v, MotionEvent event) {
-		    	gridview.startEphemeralAnimation();
+		    	gridview.startEphemeralAnimation("size");
 				return true;
 		    }
 		});
