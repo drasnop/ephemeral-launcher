@@ -18,7 +18,7 @@ import android.view.ViewGroup;
 public class Page extends Fragment {
 
 	private Context mContext;
-	public TemporalColorGridView gridview;//private to public
+	public TemporalColorGridView gridview; //private to public
 	
 	public Page(Context c){
 		mContext=c;
@@ -51,7 +51,7 @@ public class Page extends Fragment {
 		//test for menu tap
 		gridview.setOnTouchListener(new OnTouchListener() {
 		    public boolean onTouch(View v, MotionEvent event) {
-		    	startInteraction();
+		    	gridview.startEphemeralAnimation();
 				return true;
 		    }
 		});
@@ -59,36 +59,4 @@ public class Page extends Fragment {
 		return gridview;
 	}
 	
-	
-	public void startInteraction() {
-		temporalColorAnimation();
-	}
-
-	public void temporalColorAnimation() {
-		int highlightedIcons=4;
-		int duration = 1000;
-		
-		int count = gridview.getChildCount();
-		
-		int index;
-		for(int i=0; i<highlightedIcons; i++){
-			index=(int) Math.floor(Math.random()*count);
-			Effects.changeToColor((Icon) gridview.getChildAt(index), 0);
-			//TODO: replace with gridview.changeToColor(index)
-		}
-		
-		changeAllToColor(duration);
-		// TODO: replace with: gridview.fadeAllToColor(duration,delay,false)
-	}
-	
-	
-	// TODO: move this method to TemporalColorGridView
-	public void changeAllToColor(long durationMs){
-		int size = gridview.getChildCount();
-
-		for (int i = 0; i < size; i++) {
-			Effects.changeToColor((Icon) gridview.getChildAt(i), durationMs);
-		}
-		
-	}
 }

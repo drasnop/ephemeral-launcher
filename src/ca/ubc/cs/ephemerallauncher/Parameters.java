@@ -2,10 +2,11 @@ package ca.ubc.cs.ephemerallauncher;
 
 public class Parameters {
 
-    public static final int NUM_PAGES = 2;
+    public static final int NUM_PAGES = 3;
+    public static final int NUM_HIGHLIGHTED_ICONS = 4;
     
-    public static final int START_DELAY = 500;			// ms
-    public static final int FADE_IN_DURATION = 2000;  	// ms
+    public static final int START_DELAY__COLOR = 500;			// ms
+    public static final int FADE_IN_DURATION__COLOR = 1000;  	// ms
 	
 	// references to our images
 	public static final Integer[] images_gs = {R.drawable.icon_0_gs, R.drawable.icon_1_gs,

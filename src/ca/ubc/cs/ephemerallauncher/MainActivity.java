@@ -1,13 +1,11 @@
 package ca.ubc.cs.ephemerallauncher;
-import ca.ubc.cs.ephemerallauncher.R;
-
 import java.util.ArrayList;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.view.Menu;  
-import android.view.MenuItem; 
+import android.view.Menu;
+import android.view.MenuItem;
 
 
 public class MainActivity extends FragmentActivity {
@@ -25,16 +23,13 @@ public class MainActivity extends FragmentActivity {
 		pager = (ViewPager)findViewById(R.id.pager);
 		
 		// Create grid views for each page
-		Page page1 = new Page(this);
-		Page page2 = new Page(this);
-		
-		// Add them to the pagerAdapter
 		ArrayList<Page> pages=new ArrayList<Page>();
-		pages.add(page1);
-		pages.add(page2);
-		pagerAdapter = new PagerAdapter(getSupportFragmentManager(),pages);
+		for (int i = 0; i < Parameters.NUM_PAGES; i++) {
+			pages.add(new Page(this));
+		}
 		
 		// populate pager
+		pagerAdapter = new PagerAdapter(getSupportFragmentManager(),pages);
         pager.setAdapter(pagerAdapter);
 	}
 
@@ -51,7 +46,7 @@ public class MainActivity extends FragmentActivity {
 	    switch (item.getItemId()) {
 	        case R.id.action_temporal:
 	        	// need to add more, if there are more pages
-	        	((Page) pagerAdapter.getItem(0)).temporalColorAnimation();
+	        	//((Page) pagerAdapter.getItem(0)).temporalColorAnimation();
 	        	//((Page) pagerAdapter.getItem(1)).temporalColorAnimation();
 	            return true;
 	        case R.id.action_highlight2:
