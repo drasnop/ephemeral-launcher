@@ -7,4 +7,27 @@
     <string name="highlight_2">HighlightScheme2</string>
     <string name="highlight_temporal">Temporal</string>
     
+    
+    
+    <string name="icon_0_cap">icon 0</string>
+    <string name="icon_1_cap">icon 1</string>
+    <string name="icon_2_cap">icon 2</string>
+    <string name="icon_3_cap">icon 3</string>
+    <string name="icon_4_cap">icon 4</string>
+    <string name="icon_5_cap">icon 5</string>
+    <string name="icon_6_cap">icon 6</string>
+    <string name="icon_7_cap">icon 7</string>
+    <string name="icon_8_cap">icon 8</string>
+    <string name="icon_9_cap">icon 9</string>
+    <string name="icon_10_cap">icon 10</string>
+    <string name="icon_11_cap">icon 11</string>
+    <string name="icon_12_cap">icon 12</string>
+    <string name="icon_13_cap">icon 13</string>
+    <string name="icon_14_cap">icon 14</string>
+    <string name="icon_15_cap">icon 15</string>
+    <string name="icon_16_cap">icon 16</string>
+    <string name="icon_17_cap">icon 17</string>
+    <string name="icon_18_cap">icon 18</string>
+    <string name="icon_19_cap">icon 19</string>
+    
 </resources>

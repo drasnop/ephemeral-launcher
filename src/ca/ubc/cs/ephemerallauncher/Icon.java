@@ -29,7 +29,7 @@ public class Icon extends LinearLayout{
 		return (ImageView) this.findViewById(R.id.image_gs);
 	}
 	
-	public TextView caption(){
+	public TextView getCaption(){
 		return (TextView) this.findViewById(R.id.caption);
 	}
 }

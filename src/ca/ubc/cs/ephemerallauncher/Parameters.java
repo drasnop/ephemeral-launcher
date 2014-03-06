@@ -23,4 +23,12 @@ public class Parameters {
 			R.drawable.icon_11, R.drawable.icon_12, R.drawable.icon_13,
 			R.drawable.icon_14, R.drawable.icon_15, R.drawable.icon_16,
 			R.drawable.icon_17, R.drawable.icon_18, R.drawable.icon_19 };
+	
+	public static final Integer[] captions = {R.string.icon_0_cap, R.string.icon_1_cap, 
+			R.string.icon_2_cap, R.string.icon_3_cap, R.string.icon_4_cap, 
+			R.string.icon_5_cap, R.string.icon_6_cap, R.string.icon_7_cap,
+			R.string.icon_8_cap, R.string.icon_9_cap, R.string.icon_10_cap,
+			R.string.icon_11_cap, R.string.icon_12_cap, R.string.icon_13_cap,
+			R.string.icon_14_cap, R.string.icon_15_cap, R.string.icon_16_cap,
+			R.string.icon_17_cap, R.string.icon_18_cap, R.string.icon_19_cap};
 }

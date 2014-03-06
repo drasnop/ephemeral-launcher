@@ -46,7 +46,8 @@ public class IconAdapter extends BaseAdapter {
 		//icon.image_gs().setAlpha(1f);
 
 		// The caption
-		icon.caption().setText("caption");
+		//icon.caption().setText("caption");
+		icon.getCaption().setText(Parameters.captions[position]);
 
 		return icon;
 	}
