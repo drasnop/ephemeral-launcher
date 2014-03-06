@@ -8,17 +8,31 @@ import android.widget.ImageView;
 
 public class Effects {
 
-	//TODO: define a theme and organize parameters such as tempDuration accordingly
+	
+	public static void changeToColor(Icon icon, long durationMs, long startDelayMs){
+		animateObjectProperty(icon.getGsImage(), "alpha", durationMs, startDelayMs, 0f);
+	}
 	public static void changeToColor(Icon icon, long durationMs){
 		
-		animateObjectProperty(icon.getGsImage(), "alpha", durationMs, 0, 0f);
+		changeToColor(icon, durationMs, 0);
 		
 	};
+	//immediate change to color
+	public static void changeToColor(Icon icon){
+		changeToColor(icon, 0);
+	}
+	
+	public static void changeToGreyScale(Icon icon, long durationMs, long startDelayMs){
+		animateObjectProperty(icon.getGsImage(), "alpha", durationMs, startDelayMs, 1f);
+	}
 	public static void changeToGreyScale(Icon icon, long durationMs){
 		
-		animateObjectProperty(icon.getGsImage(), "alpha", durationMs, 0, 1f);
+		changeToGreyScale(icon, durationMs, 0);
 		
 	};
+	public static void changeToGreyScale(Icon icon){
+		changeToGreyScale(icon, 0);
+	}
 	
 	//a general-purpose animation creator function for changing an arbitrary property of an object
 	public static void animateObjectProperty(Object obj, String propertyName,  long durationMs, long delayMs, float... values){
