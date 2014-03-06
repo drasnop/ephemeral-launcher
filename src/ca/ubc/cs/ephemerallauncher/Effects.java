@@ -32,7 +32,7 @@ public class Effects {
 		PropertyValuesHolder scaleX = PropertyValuesHolder.ofFloat(icon.getImage().SCALE_X, 0, 1);
 
 		ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(icon.getImage(), scaleY, scaleX);
-		animator.setDuration(800); // 800ms
+		animator.setDuration(600); // 800ms
 		animator.start();
 	}
 	

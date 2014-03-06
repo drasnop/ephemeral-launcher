@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -28,9 +29,20 @@ public class MainActivity extends FragmentActivity {
 			pages.add(new Page(this));
 		}
 		
-		// populate pager
+		// Populate pager
 		pagerAdapter = new PagerAdapter(getSupportFragmentManager(),pages);
         pager.setAdapter(pagerAdapter);
+        
+        // Set up animations when changing page
+        pager.setOnPageChangeListener(new OnPageChangeListener() {
+            public void onPageScrollStateChanged(int state) {}
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
+
+            public void onPageSelected(int position) {
+                Page p = (Page) pagerAdapter.getItem(position);
+                p.getGridView().startEphemeralAnimation("size");// could be color
+            }
+        });
 	}
 
 	@Override
