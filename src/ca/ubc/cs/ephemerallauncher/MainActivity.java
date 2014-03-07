@@ -63,11 +63,11 @@ public class MainActivity extends FragmentActivity {
 	    switch (item.getItemId()) {
 	        case R.id.action_temporal:
 	        	//((Page) pagerAdapter.getItem(1)).gridview.startEphemeralAnimation("color")
-	        	Parameters.ANIMATION=AnimationType.COLOR;
+	        	Parameters.switchAnimationTo(AnimationType.COLOR);
 	            return true;
 	        case R.id.action_size:
 	        	//((Page) pagerAdapter.getItem(1)).gridview.startEphemeralAnimation("size");
-	        	Parameters.ANIMATION=AnimationType.SIZE_ZOOM_IN;
+	        	Parameters.switchAnimationTo(AnimationType.SIZE_ZOOM_IN);
 	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);

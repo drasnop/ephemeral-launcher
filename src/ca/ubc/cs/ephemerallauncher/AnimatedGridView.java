@@ -47,19 +47,21 @@ public class AnimatedGridView extends GridView {
 			highlightIcon(position);
 		}
 
-		animateOtherIcons();
+		if (Parameters.ANIMATION_AFFECTS_OTHER_ICONS)
+			animateOtherIcons();
 	}
 
 	public void backToPreAnimationState() {
-		revertToPreAnimationState();
+		if (Parameters.ANIMATION_HAS_PREANIMATION_STATE)
+			revertToPreAnimationState();
 	}
 
 	// ////// Private helper functions
 
-	private Icon getIcon(int position){
+	private Icon getIcon(int position) {
 		return (Icon) this.getChildAt(position);
 	}
-	
+
 	private void highlightIcon(int position) {
 		switch (Parameters.ANIMATION) {
 		case COLOR:
@@ -74,14 +76,8 @@ public class AnimatedGridView extends GridView {
 	}
 
 	private void animateOtherIcons() {
-		switch (Parameters.ANIMATION) {
-		case COLOR:   // and all other similar things
-			for (int i = 0; i < this.getChildCount(); i++)
-				animateOtherIcon(i);
-			break;
-		default:
-			break;
-		}
+		for (int i = 0; i < this.getChildCount(); i++)
+			animateOtherIcon(i);
 	}
 
 	private void animateOtherIcon(int position) {
@@ -96,20 +92,14 @@ public class AnimatedGridView extends GridView {
 	}
 
 	private void revertToPreAnimationState() {
-		switch (Parameters.ANIMATION) {
-		case COLOR:		// and all other similar things
-			for (int i = 0; i < this.getChildCount(); i++)
-				revertIconToPreAnimationState(i);
-			break;
-		default:
-			break;
-		}
+		for (int i = 0; i < this.getChildCount(); i++)
+			revertIconToPreAnimationState(i);
 	}
-	
-	private void revertIconToPreAnimationState(int position){
+
+	private void revertIconToPreAnimationState(int position) {
 		switch (Parameters.ANIMATION) {
 		case COLOR:
-				Effects.changeToGreyScale(this.getIcon(position));
+			Effects.changeToGreyScale(this.getIcon(position));
 			break;
 		default:
 			break;

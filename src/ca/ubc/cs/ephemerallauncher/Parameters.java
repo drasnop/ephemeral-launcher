@@ -5,6 +5,8 @@ public class Parameters {
     public static final int NUM_PAGES = 3;
     public static final int NUM_HIGHLIGHTED_ICONS = 4;
     public static AnimationType ANIMATION = AnimationType.COLOR;
+    public static boolean ANIMATION_AFFECTS_OTHER_ICONS=true;
+    public static boolean ANIMATION_HAS_PREANIMATION_STATE=true;
     
     public static final boolean HIGLIGHT_ICONS_EARLY = true;	// if true, the icons are highlighted when the user starts scrolling to the next page
     															// if false, they are highlighted only when the user lands on the next page
@@ -14,6 +16,21 @@ public class Parameters {
 	
     public static enum AnimationType{
     	COLOR, SIZE_ZOOM_IN
+    }
+    
+    public static void switchAnimationTo(AnimationType type){
+    	ANIMATION=type;
+    	
+    	switch(ANIMATION){
+    	case COLOR:	
+    		ANIMATION_AFFECTS_OTHER_ICONS=true;
+    		ANIMATION_HAS_PREANIMATION_STATE=true;
+    		break;
+		default:
+			ANIMATION_AFFECTS_OTHER_ICONS=false;
+			ANIMATION_HAS_PREANIMATION_STATE=false;
+			break;
+    	}
     }
     
 	// references to our images
