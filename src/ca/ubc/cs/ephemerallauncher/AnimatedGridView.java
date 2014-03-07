@@ -39,7 +39,7 @@ public class AnimatedGridView extends GridView {
 	
 	public void startPreAnimation(){
 		if (Parameters.ANIMATION_HAS_PREANIMATION_STATE)
-			revertToPreAnimationState();
+			startPreAnimationAll();
 	}
 	
 	public void startEphemeralAnimation() {
@@ -60,7 +60,7 @@ public class AnimatedGridView extends GridView {
 		if (Parameters.ANIMATION_HAS_PREANIMATION_STATE){
 			//TODO: stop the current animation! (in case they last 10s or so)
 			for (int i = 0; i < this.getChildCount(); i++)
-				this.getIcon(i).getGsImage().setVisibility(View.GONE);
+				this.getIcon(i).getImageGs().setVisibility(View.GONE);
 		}
 	}
 
@@ -87,6 +87,9 @@ public class AnimatedGridView extends GridView {
 		case SIZE_PULSE_OUT:
 			Animation.pulse_out(this.getIcon(position));
 			break;
+		case BLUR:
+			Animation.color(this.getIcon(position));
+			break;
 		case TWIST:
 			Animation.twist(this.getIcon(position));
 			break;
@@ -111,14 +114,16 @@ public class AnimatedGridView extends GridView {
 		}
 	}
 
-	private void revertToPreAnimationState() {
+	private void startPreAnimationAll() {
 		for (int i = 0; i < this.getChildCount(); i++)
-			revertIconToPreAnimationState(i);
+			startPreAnimation(i);
 	}
 
-	private void revertIconToPreAnimationState(int position) {
+	private void startPreAnimation(int position) {
 		switch (Parameters.ANIMATION) {
 		case COLOR:
+		case BLUR:
+			changeMaskImages();
 			Effects.changeToGreyScale(this.getIcon(position));
 			break;
 		default:
@@ -126,4 +131,18 @@ public class AnimatedGridView extends GridView {
 		}
 	}
 
+	private void changeMaskImages(){
+		for (int i = 0; i < this.getChildCount(); i++){
+			switch(Parameters.ANIMATION){
+			case COLOR:
+				this.getIcon(i).getImageGs().setImageResource(Parameters.images_gs_ID[i]);
+				break;
+			case BLUR:
+				this.getIcon(i).getImageGs().setImageResource(Parameters.images_b_ID[i]);
+				break;
+			default:
+				break;
+			}
+		}
+	}
 }

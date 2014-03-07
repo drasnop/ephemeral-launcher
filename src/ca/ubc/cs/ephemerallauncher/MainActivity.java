@@ -115,11 +115,11 @@ public class MainActivity extends FragmentActivity {
 	        case R.id.interrupted_color:
 	        	Parameters.switchAnimationTo(AnimationType.INTERRUPTED_COLOR,pagerAdapter);
 	            return true;
-	        
+	        	*/
 	        
 	        case R.id.blur:
 	        	Parameters.switchAnimationTo(AnimationType.BLUR,pagerAdapter);
-	            return true;*/
+	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }

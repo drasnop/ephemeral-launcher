@@ -51,7 +51,7 @@ public class Parameters {
     	Log.v("Parameters","animation");
     	
     	ANIMATION=type;
-    	/* 1. Antoine - anything not related to effect (mostly pre-swipe display)
+    	/* 1. Antoine - anything not related to effect (mostly pre-swipe display) DONE (almost)
     	   2. New effects:  
     		DONE	shake(rotation?) 	- Kailun 
     		DONE	(size) zoom_out		- Kailun 
@@ -66,7 +66,8 @@ public class Parameters {
 */
     	
     	switch(ANIMATION){
-    	case COLOR:	
+    	case COLOR:
+    	case BLUR:	
     		ANIMATION_AFFECTS_OTHER_ICONS=true;
     		ANIMATION_HAS_PREANIMATION_STATE=true;
     		break;
@@ -81,15 +82,7 @@ public class Parameters {
     	pagerAdapter.getCurrentPage().getGridView().startEphemeralAnimation();
     }
     
-	// IDs of our images
-	public static final Integer[] images_gs_ID = {R.drawable.icon_0_gs, R.drawable.icon_1_gs,
-			R.drawable.icon_2_gs, R.drawable.icon_3_gs, R.drawable.icon_4_gs,
-			R.drawable.icon_5_gs, R.drawable.icon_6_gs, R.drawable.icon_7_gs,
-			R.drawable.icon_8_gs, R.drawable.icon_9_gs, R.drawable.icon_10_gs,
-			R.drawable.icon_11_gs, R.drawable.icon_12_gs, R.drawable.icon_13_gs,
-			R.drawable.icon_14_gs, R.drawable.icon_15_gs, R.drawable.icon_16_gs,
-		    R.drawable.icon_17_gs, R.drawable.icon_18_gs, R.drawable.icon_19_gs};
-	
+	// IDs of our images	
 	public static final Integer[] images_ID= { R.drawable.icon_0, R.drawable.icon_1,
 			R.drawable.icon_2, R.drawable.icon_3, R.drawable.icon_4,
 			R.drawable.icon_5, R.drawable.icon_6, R.drawable.icon_7,
@@ -97,6 +90,22 @@ public class Parameters {
 			R.drawable.icon_11, R.drawable.icon_12, R.drawable.icon_13,
 			R.drawable.icon_14, R.drawable.icon_15, R.drawable.icon_16,
 			R.drawable.icon_17, R.drawable.icon_18, R.drawable.icon_19 };
+	
+	public static final Integer[] images_gs_ID = {R.drawable.icon_0_gs, R.drawable.icon_1_gs,
+		R.drawable.icon_2_gs, R.drawable.icon_3_gs, R.drawable.icon_4_gs,
+		R.drawable.icon_5_gs, R.drawable.icon_6_gs, R.drawable.icon_7_gs,
+		R.drawable.icon_8_gs, R.drawable.icon_9_gs, R.drawable.icon_10_gs,
+		R.drawable.icon_11_gs, R.drawable.icon_12_gs, R.drawable.icon_13_gs,
+		R.drawable.icon_14_gs, R.drawable.icon_15_gs, R.drawable.icon_16_gs,
+		R.drawable.icon_17_gs, R.drawable.icon_18_gs, R.drawable.icon_19_gs};
+	
+	public static final Integer[] images_b_ID = {R.drawable.icon_0_b, R.drawable.icon_1_b,
+		R.drawable.icon_2_b, R.drawable.icon_3_b, R.drawable.icon_4_b,
+		R.drawable.icon_5_b, R.drawable.icon_6_b, R.drawable.icon_7_b,
+		R.drawable.icon_8_b, R.drawable.icon_9_b, R.drawable.icon_10_b,
+		R.drawable.icon_11_b, R.drawable.icon_12_b, R.drawable.icon_13_b,
+		R.drawable.icon_14_b, R.drawable.icon_15_b, R.drawable.icon_16_b,
+		R.drawable.icon_17_b, R.drawable.icon_18_b, R.drawable.icon_19_b};
 	
 	public static final Integer[] captions_ID = {R.string.icon_0_cap, R.string.icon_1_cap, 
 			R.string.icon_2_cap, R.string.icon_3_cap, R.string.icon_4_cap, 

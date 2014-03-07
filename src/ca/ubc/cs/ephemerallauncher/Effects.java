@@ -12,7 +12,7 @@ public class Effects {
 
 	// color change
 	public static void changeToColor(Icon icon, int durationMs, int startDelayMs) {
-		animateObjectProperty(icon.getGsImage(), "alpha", durationMs, startDelayMs, 0f);
+		animateObjectProperty(icon.getImageGs(), "alpha", durationMs, startDelayMs, 0f);
 	}
 
 	public static void changeToColor(Icon icon, int durationMs) {
@@ -37,8 +37,8 @@ public class Effects {
 
 	
 	public static void changeToGreyScale(Icon icon, int durationMs, int startDelayMs) {
-		icon.getGsImage().setVisibility(View.VISIBLE);
-		animateObjectProperty(icon.getGsImage(), "alpha", durationMs, startDelayMs, 1f);
+		icon.getImageGs().setVisibility(View.VISIBLE);
+		animateObjectProperty(icon.getImageGs(), "alpha", durationMs, startDelayMs, 1f);
 	}
 
 	public static void changeToGreyScale(Icon icon, int durationMs) {
