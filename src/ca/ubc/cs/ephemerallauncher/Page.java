@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 public class Page extends Fragment {
 
 	private Context mContext;
-	private TemporalColorGridView gridview; //private to public
+	private AnimatedGridView gridview; //private to public
 	
 	public Page(Context c){
 		mContext=c;
@@ -24,7 +24,7 @@ public class Page extends Fragment {
 	
 	public Page(){};
 	
-	public TemporalColorGridView getGridView(){
+	public AnimatedGridView getGridView(){
 		return gridview;
 	}
 	
@@ -32,32 +32,9 @@ public class Page extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		
 		// Inflate the grid layout for this fragment, then populates it with icons	
-		this.gridview = (TemporalColorGridView) inflater.inflate(R.layout.temporal_color_grid, container, false);
+		this.gridview = (AnimatedGridView) inflater.inflate(R.layout.temporal_color_grid, container, false);
 		gridview.init(mContext);
 
-/*		
-  		// Registering a global layout listener so that startInteraction is
-		// invoked when gridView is loaded completely
-  		gridview.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
-			public void onGlobalLayout() {
-				startInteraction();
-			}
-		});
-
-		gridview.getViewTreeObserver().addOnDrawListener(new OnDrawListener() {
-			public void onDraw() {
-				startInteraction();
-			}
-		});*/
-		
-		//test for menu tap
-/*		gridview.setOnTouchListener(new OnTouchListener() {
-		    public boolean onTouch(View v, MotionEvent event) {
-		    	gridview.startEphemeralAnimation("size");
-				return true;
-		    }
-		});*/
-		
 		return gridview;
 	}
 	

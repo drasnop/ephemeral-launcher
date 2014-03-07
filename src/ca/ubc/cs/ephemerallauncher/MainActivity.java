@@ -1,6 +1,7 @@
 package ca.ubc.cs.ephemerallauncher;
 import java.util.ArrayList;
 
+import ca.ubc.cs.ephemerallauncher.Parameters.AnimationType;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -35,13 +36,17 @@ public class MainActivity extends FragmentActivity {
         
         // Set up animations when changing page
         pager.setOnPageChangeListener(new OnPageChangeListener() {
-            public void onPageScrollStateChanged(int state) {}
+            public void onPageScrollStateChanged(int state) {
+            	if(state==ViewPager.SCROLL_STATE_DRAGGING)
+            		pagerAdapter.previousPosition=pager.getCurrentItem();
+            }
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
 
             public void onPageSelected(int position) {
-                Page p = (Page) pagerAdapter.getItem(position);
-                p.getGridView().startEphemeralAnimation("size");// could be color
+                pagerAdapter.getPage(position).getGridView().startEphemeralAnimation();               
+                pagerAdapter.getPreviousPage().getGridView().backToPreAnimationState();
             }
+                      
         });
 	}
 
@@ -57,12 +62,12 @@ public class MainActivity extends FragmentActivity {
 	    // Handle presses on the action bar items
 	    switch (item.getItemId()) {
 	        case R.id.action_temporal:
-	        	// need to add more, if there are more pages
 	        	//((Page) pagerAdapter.getItem(1)).gridview.startEphemeralAnimation("color")
-	            //Parameters.ANIMATION=COLOR;
-	        	return true;
+	        	Parameters.ANIMATION=AnimationType.COLOR;
+	            return true;
 	        case R.id.action_size:
 	        	//((Page) pagerAdapter.getItem(1)).gridview.startEphemeralAnimation("size");
+	        	Parameters.ANIMATION=AnimationType.SIZE_ZOOM_IN;
 	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);

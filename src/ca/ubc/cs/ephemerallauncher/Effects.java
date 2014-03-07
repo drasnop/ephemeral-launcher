@@ -1,12 +1,8 @@
 package ca.ubc.cs.ephemerallauncher;
 
 import android.animation.Animator;
-import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
-// import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 public class Effects {
@@ -47,7 +43,7 @@ public class Effects {
 
 	};
 
-	// immediate change to greyscale
+	// immediate change to grey scale
 	public static void changeToGreyScale(Icon icon) {
 		changeToGreyScale(icon, 0);
 	}
@@ -86,5 +82,39 @@ public class Effects {
 
 		animObject.start();
 	}
+	
+	public static void animateObjectProperty(Object obj, String propertyName, long durationMs, long delayMs,
+			int... values) {
+		ObjectAnimator animObject = ObjectAnimator.ofInt(obj, propertyName, values);
+		animObject.setDuration(durationMs);
+		animObject.setStartDelay(delayMs);
+
+		animObject.addListener(new Animator.AnimatorListener() {
+
+			@Override
+			public void onAnimationCancel(Animator arg0) {
+
+			}
+
+			@Override
+			public void onAnimationEnd(Animator animation) {
+
+			}
+
+			@Override
+			public void onAnimationRepeat(Animator animation) {
+
+			}
+
+			@Override
+			public void onAnimationStart(Animator animation) {
+
+			}
+
+		});
+
+		animObject.start();
+	}
+
 
 }

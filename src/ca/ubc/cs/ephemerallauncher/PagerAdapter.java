@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class PagerAdapter extends FragmentPagerAdapter {
 
 	private ArrayList<Page> fragments;
+	public int previousPosition;
 	
 	public PagerAdapter(FragmentManager fm, ArrayList<Page> fragments) {
 		super(fm);
@@ -25,4 +26,13 @@ public class PagerAdapter extends FragmentPagerAdapter {
 		return Parameters.NUM_PAGES;
 	}
 
+	// helper function to make calls simpler when launching animations
+	public Page getPage(int position){
+		return fragments.get(position);
+	}
+
+	// helper function to make calls simpler when launching animations
+	public Page getPreviousPage() {
+		return fragments.get(previousPosition);
+	}
 }

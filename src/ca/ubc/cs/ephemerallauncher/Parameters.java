@@ -4,10 +4,18 @@ public class Parameters {
 
     public static final int NUM_PAGES = 3;
     public static final int NUM_HIGHLIGHTED_ICONS = 4;
+    public static AnimationType ANIMATION = AnimationType.COLOR;
+    
+    public static final boolean HIGLIGHT_ICONS_EARLY = true;	// if true, the icons are highlighted when the user starts scrolling to the next page
+    															// if false, they are highlighted only when the user lands on the next page
     
     public static final int START_DELAY__COLOR = 500;			// ms
     public static final int FADE_IN_DURATION__COLOR = 1000;  	// ms
 	
+    public static enum AnimationType{
+    	COLOR, SIZE_ZOOM_IN
+    }
+    
 	// references to our images
 	public static final Integer[] images_gs = {R.drawable.icon_0_gs, R.drawable.icon_1_gs,
 			R.drawable.icon_2_gs, R.drawable.icon_3_gs, R.drawable.icon_4_gs,
