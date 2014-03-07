@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class PagerAdapter extends FragmentPagerAdapter {
 
 	private ArrayList<Page> fragments;
+	public int previousPosition;
 	
 	public PagerAdapter(FragmentManager fm, ArrayList<Page> fragments) {
 		super(fm);

@@ -35,6 +35,7 @@ public class TemporalColorGridView extends GridView {
 				// v.setVisibility(View.GONE);
 			}
 		});
+	
 	}
 	
 	public void startEphemeralAnimation() {

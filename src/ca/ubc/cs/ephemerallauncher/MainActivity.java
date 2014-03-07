@@ -35,13 +35,21 @@ public class MainActivity extends FragmentActivity {
         
         // Set up animations when changing page
         pager.setOnPageChangeListener(new OnPageChangeListener() {
-            public void onPageScrollStateChanged(int state) {}
+            public void onPageScrollStateChanged(int state) {
+            	if(state==ViewPager.SCROLL_STATE_DRAGGING)
+            		pagerAdapter.previousPosition=pager.getCurrentItem();
+            }
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
 
             public void onPageSelected(int position) {
                 Page p = (Page) pagerAdapter.getItem(position);
                 p.getGridView().startEphemeralAnimation();
+                
+                Page pp = (Page) pagerAdapter.getItem(pagerAdapter.previousPosition);
+                pp.getGridView().backToPreAnimationState();
             }
+            
+            
         });
 	}
 

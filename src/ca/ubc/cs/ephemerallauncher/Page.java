@@ -34,30 +34,7 @@ public class Page extends Fragment {
 		// Inflate the grid layout for this fragment, then populates it with icons	
 		this.gridview = (TemporalColorGridView) inflater.inflate(R.layout.temporal_color_grid, container, false);
 		gridview.init(mContext);
-
-/*		
-  		// Registering a global layout listener so that startInteraction is
-		// invoked when gridView is loaded completely
-  		gridview.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
-			public void onGlobalLayout() {
-				startInteraction();
-			}
-		});
-
-		gridview.getViewTreeObserver().addOnDrawListener(new OnDrawListener() {
-			public void onDraw() {
-				startInteraction();
-			}
-		});*/
-		
-		//test for menu tap
-/*		gridview.setOnTouchListener(new OnTouchListener() {
-		    public boolean onTouch(View v, MotionEvent event) {
-		    	gridview.startEphemeralAnimation();
-				return true;
-		    }
-		});*/
-		
+	
 		return gridview;
 	}
 	
