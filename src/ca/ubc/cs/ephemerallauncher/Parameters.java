@@ -33,9 +33,22 @@ public class Parameters {
     public static final float DEGREE_BIG = 20f;		// [AP] wouldn't it always be - DEGREE_SMALL?
     public static final float DEGREE_REG = 0f;
     public static final int TWIST__DELAY = 400;
-    public static final int TWIST__1STDURATION = 400;
-    public static final int TWIST__2NDDURATION = TOTAL_DURATION - TWIST__1STDURATION;
-    public static final int TWIST_REPEAT_NUM = 2;
+    //public static final int TWIST__0THDURATION = 200;
+    public static final int TWIST__0THDURATION_REL = 1;
+    //public static final int TWIST__1STDURATION = 400;
+    public static final int TWIST__1STDURATION_REL = 2;
+    //public static final int TWIST__2NDDURATION = TOTAL_DURATION - TWIST__1STDURATION;
+    public static final int TWIST__2NDDURATION_REL = 1;
+    
+    public static final int TWIST_TOTAL_REL_DURATION = TWIST__0THDURATION_REL + TWIST__1STDURATION_REL + TWIST__2NDDURATION_REL;
+    
+    public static final int TWIST_REPEAT_NUM = 3;
+    
+    public static final int TWIST__0THDURATION = (int)((((float)TWIST__0THDURATION_REL)/((float)(TWIST_REPEAT_NUM * TWIST_TOTAL_REL_DURATION)))*((float)TOTAL_DURATION));
+    public static final int TWIST__1STDURATION = (int)((((float)TWIST__1STDURATION_REL)/((float)(TWIST_REPEAT_NUM * TWIST_TOTAL_REL_DURATION)))*((float)TOTAL_DURATION));
+    public static final int TWIST__2NDDURATION = (int)((((float)TWIST__2NDDURATION_REL)/((float)(TWIST_REPEAT_NUM * TWIST_TOTAL_REL_DURATION)))*((float)TOTAL_DURATION));
+    
+    
     // transparency
     public static final int TRANSPARENCY__DELAY = 100;
     public static final int TRANSPARENCY__DURATION = 1500;
