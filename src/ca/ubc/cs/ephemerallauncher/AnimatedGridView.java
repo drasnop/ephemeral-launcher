@@ -56,13 +56,17 @@ public class AnimatedGridView extends GridView {
 
 	// ////// Private helper functions
 
+	private Icon getIcon(int position){
+		return (Icon) this.getChildAt(position);
+	}
+	
 	private void highlightIcon(int position) {
 		switch (Parameters.ANIMATION) {
 		case COLOR:
-			Effects.changeToColor((Icon) this.getChildAt(position));
+			Effects.changeToColor(this.getIcon(position));
 			break;
 		case SIZE_ZOOM_IN:
-			Effects.changeToSize((Icon) this.getChildAt(position));
+			Effects.changeToSize(this.getIcon(position));
 			break;
 		default:
 			break;
@@ -83,7 +87,7 @@ public class AnimatedGridView extends GridView {
 	private void animateOtherIcon(int position) {
 		switch (Parameters.ANIMATION) {
 		case COLOR:
-			Effects.changeToColor((Icon) this.getChildAt(position), Parameters.FADE_IN_DURATION__COLOR,
+			Effects.changeToColor(this.getIcon(position), Parameters.FADE_IN_DURATION__COLOR,
 					Parameters.START_DELAY__COLOR);
 			break;
 		default:
@@ -105,7 +109,7 @@ public class AnimatedGridView extends GridView {
 	private void revertIconToPreAnimationState(int position){
 		switch (Parameters.ANIMATION) {
 		case COLOR:
-				Effects.changeToGreyScale((Icon) this.getChildAt(position));
+				Effects.changeToGreyScale(this.getIcon(position));
 			break;
 		default:
 			break;
