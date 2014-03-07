@@ -32,16 +32,21 @@ public class AnimatedGridView extends GridView {
 		this.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 				Toast.makeText(mContext, "" + position, Toast.LENGTH_SHORT).show();
-				// v.setVisibility(View.GONE);
 			}
 		});
 
 	}
-
+	
+	public void startPreAnimation(){
+		if (Parameters.ANIMATION_HAS_PREANIMATION_STATE)
+			revertToPreAnimationState();
+	}
+	
 	public void startEphemeralAnimation() {
 		int position;
 		int count = this.getChildCount();
 
+		//TODO: check if the random numbers are all different!!!
 		for (int i = 0; i < Parameters.NUM_HIGHLIGHTED_ICONS; i++) {
 			position = (int) Math.floor(Math.random() * count);
 			highlightIcon(position);
@@ -52,8 +57,12 @@ public class AnimatedGridView extends GridView {
 	}
 
 	public void backToPreAnimationState() {
-		if (Parameters.ANIMATION_HAS_PREANIMATION_STATE)
-			revertToPreAnimationState();
+		if (Parameters.ANIMATION_HAS_PREANIMATION_STATE){
+			//revertToPreAnimationState();
+			//TODO: stop the current animation! (in case they last 10s or so)
+			for (int i = 0; i < this.getChildCount(); i++)
+				this.getIcon(i).getGsImage().setVisibility(View.GONE);
+		}
 	}
 
 	// ////// Private helper functions

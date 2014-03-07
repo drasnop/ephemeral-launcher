@@ -1,6 +1,7 @@
 package ca.ubc.cs.ephemerallauncher;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,20 +33,26 @@ public class IconAdapter extends BaseAdapter {
 		if (convertView == null) {
 			// if it's not recycled, initialize the view
 			// [AP: I don't really understand this test...]
-			icon = (Icon) LayoutInflater.from(mContext).inflate(R.layout.icon, null);
+			// [AP: Contrary to the doc, this doesn't return parent...]
+			icon=(Icon) LayoutInflater.from(mContext).inflate(R.layout.icon, parent,false);
+			
+			// Set up the colored image
+			icon.getImage().setImageResource(Parameters.images_ID[position]);
+			
+			// Set up the greyscale image
+			icon.getGsImage().setImageResource(Parameters.images_gs_ID[position]);
+			icon.getGsImage().setVisibility(ViewGroup.GONE);
+			Parameters.images_gs.add(icon.getGsImage());
+			Parameters.images_gs_2.add(icon.findViewById(R.id.image_gs));
+			
+			// The caption
+			icon.getCaption().setText(Parameters.captions_ID[position]);
+			
 		} else {
 			icon = (Icon) convertView;
+			Log.v("IconAdapter","animation convert view");
 		}
 
-		// Set up the colored image
-		icon.getImage().setImageResource(Parameters.images_ID[position]);
-
-		// Set up the greyscale image
-		icon.getGsImage().setImageResource(Parameters.images_gs_ID[position]);
-		Parameters.images_gs.add(icon.getGsImage());
-
-		// The caption
-		icon.getCaption().setText(Parameters.captions_ID[position]);
 
 		return icon;
 	}

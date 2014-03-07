@@ -1,12 +1,14 @@
 package ca.ubc.cs.ephemerallauncher;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 
+import android.util.Log;
 import android.view.View;
 
 public class Parameters {
 
-    public static final int NUM_PAGES = 3;
+    public static final int NUM_PAGES = 5;
     public static final int NUM_HIGHLIGHTED_ICONS = 4;
     public static AnimationType ANIMATION = AnimationType.COLOR;		// Will be used as initial animation type
     public static boolean ANIMATION_AFFECTS_OTHER_ICONS;				// Will be initialized automatically
@@ -29,7 +31,9 @@ public class Parameters {
     	COLOR, SIZE_ZOOM_IN
     }
     
-    public static void switchAnimationTo(AnimationType type){
+    public static void switchAnimationTo(AnimationType type, PagerAdapter pagerAdapter){
+    	Log.v("Parameters","animation");
+    	
     	ANIMATION=type;
     	
     	switch(ANIMATION){
@@ -46,13 +50,17 @@ public class Parameters {
     	// Show / hide particular images if necessary
     	switch(ANIMATION){
     	case COLOR:	
-    		showAll(images_gs);
+    		//Effects.showAll(images_gs);
     		break;
 		default:
-			hideAll(images_gs);
+			//Effects.hideAll(images_gs);
+			//hideAllGsImages(pagerAdapter);
 			break;
     	}
     	
+    	// Play animation
+    	pagerAdapter.getCurrentPage().getGridView().startPreAnimation();
+    	pagerAdapter.getCurrentPage().getGridView().startEphemeralAnimation();
     }
     
 	// IDs of our images
@@ -82,17 +90,15 @@ public class Parameters {
 	
 	
 	// References to the greyscale images
-	public static LinkedList<View> images_gs=new LinkedList<View>();
+	public static LinkedList<View> images_gs;
 	
-	private static void hideAll(LinkedList<View> views){
-		for(View v:views)
-			v.setVisibility(View.GONE);
-	}
+	public static HashSet<View> images_gs_2;
 	
-	private static void showAll(LinkedList<View> views){
-		for(View v:views)
-			v.setVisibility(View.VISIBLE);
-	}
-	
-	
+/*	private static void hideAllGsImages(PagerAdapter pa){
+		for(int i=0;i<NUM_PAGES;i++){
+			Log.v("Parameters","animation "+pa.getPage(i).getGridView());
+			for(int j=0;j<pa.getPage(i).getGridView().getChildCount();j++)
+				((Icon) pa.getPage(i).getGridView().getChildAt(j)).getGsImage().setVisibility(View.GONE);
+		}
+	}*/
 }

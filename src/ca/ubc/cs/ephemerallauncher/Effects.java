@@ -1,8 +1,12 @@
 package ca.ubc.cs.ephemerallauncher;
 
+import java.util.LinkedList;
+
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
+import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 public class Effects {
@@ -45,6 +49,7 @@ public class Effects {
 	// immediate change to grey scale
 	public static void changeToGreyScale(Icon icon) {
 		changeToGreyScale(icon, 0);
+		icon.getGsImage().setVisibility(View.VISIBLE);
 	}
 
 	// a general-purpose animation creator function for changing an arbitrary
@@ -93,4 +98,15 @@ public class Effects {
 		animObject.start();
 	}
 	
+	public static void hideAll(LinkedList<View> views){
+		for(View v:views)
+			v.setVisibility(View.GONE);
+
+		Log.v("Effects","animation "+views.size());
+	}
+	
+	public static void showAll(LinkedList<View> views){
+		for(View v:views)
+			v.setVisibility(View.VISIBLE);
+	}
 }

@@ -3,7 +3,7 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
-	<classpathentry excluding="ca/ubc/cs/deprecated/IconAdapter.java|ca/ubc/cs/deprecated/ImageAdapter.java|ca/ubc/cs/deprecated/MainActivity.java|ca/ubc/cs/deprecated/CopyOfIconAdapterXML.java|ca/ubc/cs/deprecated/Icon.java|ca/ubc/cs/deprecated/CopyOfIcon.java|ca/ubc/cs/deprecated/Effects.java|ca/ubc/cs/deprecated/Effects_Kamyar.java" kind="src" path="src"/>
+	<classpathentry excluding="ca/ubc/cs/deprecated/IconAdapter.java|ca/ubc/cs/deprecated/ImageAdapter.java|ca/ubc/cs/deprecated/MainActivity.java|ca/ubc/cs/deprecated/CopyOfIconAdapterXML.java|ca/ubc/cs/deprecated/Icon.java|ca/ubc/cs/deprecated/CopyOfIcon.java|ca/ubc/cs/deprecated/Effects.java|ca/ubc/cs/deprecated/Effects_Kamyar.java|ca/ubc/cs/deprecated/CopyOfIconAdapter.java" kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
