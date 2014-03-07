@@ -50,10 +50,12 @@ public class MainActivity extends FragmentActivity {
                       
         });
         
-        // Select initial animation type when the layout has been created
+        // Select initial animation type when the layout has been created, then plays it
 		pager.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
 			public void onGlobalLayout() {
-				Parameters.switchAnimationTo(Parameters.ANIMATION);				
+				Parameters.switchAnimationTo(Parameters.ANIMATION);	
+//				pagerAdapter.getPage(0).getGridView().backToPreAnimationState();
+//				pagerAdapter.getPage(0).getGridView().startEphemeralAnimation();
 			}
 		});
 	}

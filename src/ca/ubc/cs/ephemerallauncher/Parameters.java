@@ -73,19 +73,18 @@ public class Parameters {
 			R.string.icon_14_cap, R.string.icon_15_cap, R.string.icon_16_cap,
 			R.string.icon_17_cap, R.string.icon_18_cap, R.string.icon_19_cap};
 	
+	
 	// References to the greyscale images
 	public static LinkedList<View> images_gs=new LinkedList<View>();
 	
 	private static void hideAll(LinkedList<View> views){
-		for(View v:views){
+		for(View v:views)
 			v.setVisibility(View.GONE);
-		}
 	}
 	
 	private static void showAll(LinkedList<View> views){
-		for(View v:views){
+		for(View v:views)
 			v.setVisibility(View.VISIBLE);
-		}
 	}
 	
 	
