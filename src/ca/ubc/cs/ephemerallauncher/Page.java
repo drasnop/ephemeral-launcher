@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 public class Page extends Fragment {
 
 	private Context mContext;
-	private TemporalColorGridView gridview; //private to public
+	private AnimatedGridView gridview; //private to public
 	
 	public Page(Context c){
 		mContext=c;
@@ -24,7 +24,7 @@ public class Page extends Fragment {
 	
 	public Page(){};
 	
-	public TemporalColorGridView getGridView(){
+	public AnimatedGridView getGridView(){
 		return gridview;
 	}
 	
@@ -32,7 +32,7 @@ public class Page extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		
 		// Inflate the grid layout for this fragment, then populates it with icons	
-		this.gridview = (TemporalColorGridView) inflater.inflate(R.layout.temporal_color_grid, container, false);
+		this.gridview = (AnimatedGridView) inflater.inflate(R.layout.temporal_color_grid, container, false);
 		gridview.init(mContext);
 
 		return gridview;
