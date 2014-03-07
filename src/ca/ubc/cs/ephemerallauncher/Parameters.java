@@ -35,6 +35,7 @@ public class Parameters {
     public static final int TWIST__DELAY = 400;
     public static final int TWIST__1STDURATION = 400;
     public static final int TWIST__2NDDURATION = TOTAL_DURATION - TWIST__1STDURATION;
+    public static final int TWIST_REPEAT_NUM = 2;
     // transparency
     public static final int TRANSPARENCY__DELAY = 100;
     public static final int TRANSPARENCY__DURATION = 1500;

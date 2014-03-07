@@ -51,9 +51,18 @@ public class Effects {
 		animateObjectProperty(icon.getCaption(), "alpha", durationMs, delayMs, value);
 	}
 	
+
+	
+	//TODO: animateSequentially
+	//TODO: animateTogether
+	//TODO: repeatAnimation
+	//TODO: doAfterAnimation
+	
+
+	
 	// a general-purpose animation creator function for changing an arbitrary
 	// property of an object
-	public static void animateObjectProperty(Object obj, String propertyName, int durationMs, int delayMs,
+	public static Animator animateObjectProperty(Object obj, String propertyName, int durationMs, int delayMs,
 			float... values) {
 		
 		ObjectAnimator animObject = ObjectAnimator.ofFloat(obj, propertyName, values);
@@ -86,5 +95,6 @@ public class Effects {
 		});
 
 		animObject.start();
+		return animObject;
 	}
 }
