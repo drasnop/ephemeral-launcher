@@ -66,10 +66,8 @@ public class MainActivity extends FragmentActivity {
 		});
 
 		// Switch to initial animation type when the layout has been created, then plays it
-
-		pager.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
-			// This is a workaround, but seems to work pretty well...
-			boolean firstTime=true;
+		pager.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {		
+			boolean firstTime=true;		// This is a workaround, but seems to work pretty well...
 			public void onGlobalLayout() {
 				if(firstTime){
 					Parameters.switchAnimationTo(Parameters.ANIMATION, pagerAdapter);
@@ -79,7 +77,6 @@ public class MainActivity extends FragmentActivity {
 		});
 
 		// Parameters.switchAnimationTo(Parameters.ANIMATION,pagerAdapter);		// CRASHES
-
 	}
 
 	@Override
@@ -91,19 +88,40 @@ public class MainActivity extends FragmentActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle presses on the action bar items
-		Log.v("onOptions", "animation_beginning");
-		switch (item.getItemId()) {
-		case R.id.action_temporal:
-			Log.v("onOptions", "animationCOLOR");
-			Parameters.switchAnimationTo(AnimationType.COLOR, pagerAdapter);
-			return true;
-		case R.id.action_size:
-			Log.v("onOptions", "animationZOOM");
-			Parameters.switchAnimationTo(AnimationType.SIZE_ZOOM_IN, pagerAdapter);
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);
-		}
+
+	    // Handle presses on the action bar items
+	    switch (item.getItemId()) {
+	        case R.id.color:
+	        	Parameters.switchAnimationTo(AnimationType.COLOR,pagerAdapter);
+	            return true;
+	        case R.id.zoom_in:
+	        	Parameters.switchAnimationTo(AnimationType.SIZE_ZOOM_IN,pagerAdapter);
+	            return true;
+	        case R.id.zoom_out:
+	        	Parameters.switchAnimationTo(AnimationType.SIZE_ZOOM_OUT,pagerAdapter);
+	            return true;
+	        case R.id.pulse_in:
+	        	Parameters.switchAnimationTo(AnimationType.SIZE_PULSE_IN,pagerAdapter);
+	            return true;
+	        case R.id.pulse_out:
+	        	Parameters.switchAnimationTo(AnimationType.SIZE_PULSE_OUT,pagerAdapter);
+	            return true;
+	        case R.id.twist:
+	        	Parameters.switchAnimationTo(AnimationType.TWIST,pagerAdapter);
+	            return true;
+	            /*      case R.id.transparency:
+	        	Parameters.switchAnimationTo(AnimationType.TRANSPARENCY,pagerAdapter);
+	            return true;
+	        case R.id.interrupted_color:
+	        	Parameters.switchAnimationTo(AnimationType.INTERRUPTED_COLOR,pagerAdapter);
+	            return true;
+	        
+	        
+	        case R.id.blur:
+	        	Parameters.switchAnimationTo(AnimationType.BLUR,pagerAdapter);
+	            return true;*/
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
 	}
 }

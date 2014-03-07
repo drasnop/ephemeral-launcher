@@ -4,10 +4,9 @@ import java.util.LinkedList;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
-import android.animation.PropertyValuesHolder;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
+
 
 public class Effects {
 
@@ -25,16 +24,17 @@ public class Effects {
 		changeToColor(icon, 0);
 	}
 
-	// size_zoom_in change
-	public static void changeToSize(Icon icon, int durationMs, int delayMs) {
-		animateObjectProperty(icon.getImage(), "size_zoom_in", durationMs, delayMs,0f);
+	// animation (interaction) type are defined (currently) in animatedGridView   --KZ 
+	public static void changeSize(Icon icon, int durationMs, int delayMs, float... value) {
+		animateObjectProperty(icon.getImage(), "scaleX", durationMs, delayMs,value);
+		animateObjectProperty(icon.getImage(), "scaleY", durationMs, delayMs,value);
+	}
+	
+	// rotation
+	public static void rotate(Icon icon, int durationMs, int delayMs, float... value) {
+		animateObjectProperty(icon.getImage(), "rotation", durationMs, delayMs,value);
 	}
 
-	// immediate change to size_zoom_in
-	public static void changeToSize(Icon icon) {
-		icon.getGsImage().animate().alpha(0).start(); //hide the grey scale image
-		changeToSize(icon,Parameters.ZOOM_IN__DURATION_SIZE,Parameters.ZOOM_IN__DELAY_SIZE);
-	}
 	
 	public static void changeToGreyScale(Icon icon, int durationMs, int startDelayMs) {
 		icon.getGsImage().setVisibility(View.VISIBLE);
@@ -55,17 +55,8 @@ public class Effects {
 	public static void animateObjectProperty(Object obj, String propertyName, int durationMs, int delayMs,
 			float... values) {
 		
-		ObjectAnimator animObject = null;
-		
-		if (propertyName=="alpha") {
-        	animObject = ObjectAnimator.ofFloat(obj, propertyName, values);
-		}  
-		else if (propertyName == "size_zoom_in"){
-        	PropertyValuesHolder scaleY = PropertyValuesHolder.ofFloat(ImageView.SCALE_X, Parameters.ZOOM_IN__INIT_SIZE, Parameters.ZOOM_IN__FINAL_SIZE);
-    		PropertyValuesHolder scaleX = PropertyValuesHolder.ofFloat(ImageView.SCALE_Y, Parameters.ZOOM_IN__INIT_SIZE, Parameters.ZOOM_IN__FINAL_SIZE);
+		ObjectAnimator animObject = ObjectAnimator.ofFloat(obj, propertyName, values);
 
-    		animObject = ObjectAnimator.ofPropertyValuesHolder(obj, scaleY, scaleX);
-		}
 		animObject.setDuration(durationMs);
 		animObject.setStartDelay(delayMs);
 

@@ -73,16 +73,28 @@ public class AnimatedGridView extends GridView {
 	private void highlightIcon(int position) {
 		switch (Parameters.ANIMATION) {
 		case COLOR:
-			Effects.changeToColor(this.getIcon(position));
+			Animation.color(this.getIcon(position));
 			break;
 		case SIZE_ZOOM_IN:
-			Effects.changeToSize(this.getIcon(position));
+			Animation.zoom_in(this.getIcon(position));
+			break;
+		case SIZE_ZOOM_OUT:
+			Animation.zoom_out(this.getIcon(position));
+			break;
+		case SIZE_PULSE_IN:
+			Animation.pulse_in(this.getIcon(position));
+			break;
+		case SIZE_PULSE_OUT:
+			Animation.pulse_out(this.getIcon(position));
+			break;
+		case TWIST:
+			Animation.twist(this.getIcon(position));
 			break;
 		default:
 			break;
 		}
 	}
-
+    
 	private void animateOtherIcons() {
 		for (int i = 0; i < this.getChildCount(); i++)
 			animateOtherIcon(i);

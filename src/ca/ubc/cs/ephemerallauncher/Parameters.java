@@ -18,19 +18,52 @@ public class Parameters {
     public static final int COLOR__FADE_IN_DURATION = 1000;  	// ms 
 
 	// for highlighted icons
-    public static final float ZOOM_IN__INIT_SIZE = 0f;
-    public static final float ZOOM_IN__FINAL_SIZE = 1;
-    public static final int ZOOM_IN__DURATION_SIZE = 600;  		// ms
-    public static final int ZOOM_IN__DELAY_SIZE = 0;  			// ms
+    public static final int DELAY = 0;
+    public static final int TOTAL_DURATION = 600;
+    // size
+    public static final float SIZE__SMALL = 0.5f;
+    public static final float SIZE__BIG = 1.5f;
+    public static final float SIZE__REG = 1;			// original size
+    public static final int ZOOM__DURATION = TOTAL_DURATION;  		// ms
+    public static final int PULSE__DELAY = 300;  		
+    public static final int PULSE__1STHALF_DURATION = PULSE__DELAY;
+    public static final int PULSE__2NDHALF_DURATION = TOTAL_DURATION - PULSE__1STHALF_DURATION;
+    // rotation
+    public static final float DEGREE_SMALL = -20f; // rotate from 0 to -60 is counterclockwise rotation; 60f as 60 degree
+    public static final float DEGREE_BIG = 20f;		// [AP] wouldn't it always be - DEGREE_SMALL?
+    public static final float DEGREE_REG = 0f;
+    public static final int TWIST__DELAY = 400;
+    public static final int TWIST__1STDURATION = 400;
+    public static final int TWIST__2NDDURATION = TOTAL_DURATION - TWIST__1STDURATION;
+ /* 	a different type of twist/shake   
+  * public static final int SHAKE__DELAY1 = 150;
+    public static final int SHAKE__DELAY2 = 300;
+    public static final int SHAKE__1ST_DURATION = SHAKE__DELAY1;
+    public static final int SHAKE__2ND_DURATION = SHAKE__DELAY2;
+    public static final int SHAKE__3RD_DURATION = TOTAL_DURATION - SHAKE__DELAY1 - SHAKE__DELAY2;*/
+    
     
     public static enum AnimationType{
-    	COLOR, SIZE_ZOOM_IN
+    	COLOR, SIZE_ZOOM_IN, SIZE_ZOOM_OUT, SIZE_PULSE_IN, SIZE_PULSE_OUT, TRANSPARENCY, BLUR, INTERRUPTED_COLOR, TWIST
     }
     
     public static void switchAnimationTo(AnimationType type, PagerAdapter pagerAdapter){
     	Log.v("Parameters","animation");
     	
     	ANIMATION=type;
+    	/* 1. Antoine - anything not related to effect (mostly pre-swipe display)
+    	   2. New effects:  
+    		DONE	shake(rotation?) 	- Kailun 
+    		DONE	(size) zoom_out		- Kailun 
+    		DONE	(size) pulse_in		- Kailun/Kamyar
+    		DONE	(size) pulse_out	- Kailun/Kamyar
+ 					transparency (alpha) - Kamyar?
+ 					blur				- Antoine
+ 					interrupted Color 	- Kamyar (if time is permitted)
+ 			comment: for all size animation, the current rule of thumb is to always end at regular size, i.e.,1.
+ 			3. Kailun - (if time permitted) setup menu and sub-menu (for color and size effect) 
+    	
+*/
     	
     	switch(ANIMATION){
     	case COLOR:	
