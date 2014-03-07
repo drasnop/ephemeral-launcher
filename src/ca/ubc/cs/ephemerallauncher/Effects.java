@@ -3,6 +3,7 @@ package ca.ubc.cs.ephemerallauncher;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
+import android.widget.ImageView;
 
 public class Effects {
 
@@ -23,8 +24,9 @@ public class Effects {
 	public static void changeToSize(Icon icon) {
 		icon.getGsImage().animate().alpha(0).start();
 	
-		PropertyValuesHolder scaleY = PropertyValuesHolder.ofFloat(icon.getImage().SCALE_Y, 0, 1);
-		PropertyValuesHolder scaleX = PropertyValuesHolder.ofFloat(icon.getImage().SCALE_X, 0, 1);
+		icon.getImage();
+		PropertyValuesHolder scaleY = PropertyValuesHolder.ofFloat(ImageView.SCALE_X, 0.5f, 1);
+		PropertyValuesHolder scaleX = PropertyValuesHolder.ofFloat(ImageView.SCALE_Y, 0.5f, 1);
 
 		ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(icon.getImage(), scaleY, scaleX);
 		animator.setDuration(600); // 800ms
@@ -41,7 +43,7 @@ public class Effects {
 
 	};
 
-	// immediate change to greyscale
+	// immediate change to grey scale
 	public static void changeToGreyScale(Icon icon) {
 		changeToGreyScale(icon, 0);
 	}
