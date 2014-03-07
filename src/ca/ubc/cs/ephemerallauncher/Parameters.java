@@ -58,7 +58,7 @@ public class Parameters {
     		DONE	(size) pulse_in		- Kailun/Kamyar
     		DONE	(size) pulse_out	- Kailun/Kamyar
  					transparency (alpha) - Kamyar?
- 					blur				- Antoine
+ 			DONE	blur				- Antoine
  					interrupted Color 	- Kamyar (if time is permitted)
  			comment: for all size animation, the current rule of thumb is to always end at regular size, i.e.,1.
  			3. Kailun - (if time permitted) setup menu and sub-menu (for color and size effect) 

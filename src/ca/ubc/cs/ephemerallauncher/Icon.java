@@ -29,10 +29,6 @@ public class Icon extends LinearLayout{
 		return (ImageView) this.findViewById(R.id.image_gs);
 	}
 	
-	public ImageView getImageB(){
-		return (ImageView) this.findViewById(R.id.image_b);
-	}
-	
 	public TextView getCaption(){
 		return (TextView) this.findViewById(R.id.caption);
 	}

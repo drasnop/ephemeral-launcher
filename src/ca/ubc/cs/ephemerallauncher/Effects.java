@@ -17,7 +17,7 @@ public class Effects {
 
 	public static void changeToColor(Icon icon, int durationMs) {
 		changeToColor(icon, durationMs, 0);
-	};
+	}
 
 	// immediate change to color
 	public static void changeToColor(Icon icon) {
@@ -43,7 +43,7 @@ public class Effects {
 
 	public static void changeToGreyScale(Icon icon, int durationMs) {
 		changeToGreyScale(icon, durationMs, 0);
-	};
+	}
 
 	// immediate change to grey scale
 	public static void changeToGreyScale(Icon icon) {

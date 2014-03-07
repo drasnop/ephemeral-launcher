@@ -43,10 +43,6 @@ public class IconAdapter extends BaseAdapter {
 			icon.getImageGs().setImageResource(Parameters.images_gs_ID[position]);
 			icon.getImageGs().setVisibility(ViewGroup.GONE);
 			
-			// Set up the blurry image
-			icon.getImageB().setImageResource(Parameters.images_b_ID[position]);
-			icon.getImageB().setVisibility(ViewGroup.GONE);
-			
 			// The caption
 			icon.getCaption().setText(Parameters.captions_ID[position]);
 			
