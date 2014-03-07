@@ -78,21 +78,26 @@ public class MainActivity extends FragmentActivity {
 	        case R.id.zoom_out:
 	        	Parameters.switchAnimationTo(AnimationType.SIZE_ZOOM_OUT);
 	            return true;
-	        case R.id.transparency:
-	        	Parameters.switchAnimationTo(AnimationType.TRANSPARENCY);
-	            return true;
-	        case R.id.interrupted_color:
-	        	Parameters.switchAnimationTo(AnimationType.INTERRUPTED_COLOR);
-	            return true;
 	        case R.id.pulse_in:
 	        	Parameters.switchAnimationTo(AnimationType.SIZE_PULSE_IN);
 	            return true;
 	        case R.id.pulse_out:
 	        	Parameters.switchAnimationTo(AnimationType.SIZE_PULSE_OUT);
 	            return true;
+	        case R.id.twist:
+	        	Parameters.switchAnimationTo(AnimationType.TWIST);
+	            return true;
+	            /*      case R.id.transparency:
+	        	Parameters.switchAnimationTo(AnimationType.TRANSPARENCY);
+	            return true;
+	        case R.id.interrupted_color:
+	        	Parameters.switchAnimationTo(AnimationType.INTERRUPTED_COLOR);
+	            return true;
+	        
+	        
 	        case R.id.blur:
 	        	Parameters.switchAnimationTo(AnimationType.BLUR);
-	            return true;
+	            return true;*/
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }

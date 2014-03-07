@@ -20,23 +20,42 @@ public class Parameters {
     public static final int COLOR__FADE_IN_DURATION = 1000;  	// ms 
 
 	// for highlighted icons
-    public static final float ZOOM_IN__INIT_SIZE = 0f;
-    public static final float ZOOM_IN__FINAL_SIZE = 1;
-    public static final int ZOOM_IN__DURATION = 600;  		// ms
-    public static final int ZOOM_IN__DELAY = 0;  			// ms
+    public static final int DELAY = 0;
+    public static final int TOTAL_DURATION = 600;
+    // size
+    public static final float SIZE__SMALL = 0.5f;
+    public static final float SIZE__BIG = 1.5f;
+    public static final float SIZE__REG = 1;			// original size
+    public static final int ZOOM__DURATION = TOTAL_DURATION;  		// ms
+    public static final int PULSE__DELAY = 300;  		
+    public static final int PULSE__1STHALF_DURATION = PULSE__DELAY;
+    public static final int PULSE__2NDHALF_DURATION = TOTAL_DURATION - PULSE__1STHALF_DURATION;
+    // rotation
+    public static final float DEGREE_SMALL = -60f; // rotate from 0 to -60 is counterclockwise rotation; 60f as 60 degree
+    public static final float DEGREE_BIG = 60f;
+    public static final float DEGREE_REG = 0f;
+    public static final int TWIST__DELAY = 400;
+    public static final int TWIST__1STDURATION = 400;
+    public static final int TWIST__2NDDURATION = TOTAL_DURATION - TWIST__1STDURATION;
+ /*   public static final int SHAKE__DELAY1 = 150;
+    public static final int SHAKE__DELAY2 = 300;
+    public static final int SHAKE__1ST_DURATION = SHAKE__DELAY1;
+    public static final int SHAKE__2ND_DURATION = SHAKE__DELAY2;
+    public static final int SHAKE__3RD_DURATION = TOTAL_DURATION - SHAKE__DELAY1 - SHAKE__DELAY2;*/
+    
     
     public static enum AnimationType{
-    	COLOR, SIZE_ZOOM_IN, SIZE_ZOOM_OUT, SIZE_PULSE_IN, SIZE_PULSE_OUT, TRANSPARENCY, BLUR, INTERRUPTED_COLOR
+    	COLOR, SIZE_ZOOM_IN, SIZE_ZOOM_OUT, SIZE_PULSE_IN, SIZE_PULSE_OUT, TRANSPARENCY, BLUR, INTERRUPTED_COLOR, TWIST
     }
     
     public static void switchAnimationTo(AnimationType type){
     	ANIMATION=type;
     	/* 1. Antoine - anything not related to effect (mostly pre-swipe display)
-    	   2. New effects: 
-    				shake(rotation?) 	- Kailun 
-    				(size) zoom_out		- Kailun
-    				(size) pulse_in		- Kailun/Kamyar
-    				(size) pulse_out	- Kailun/Kamyar
+    	   2. New effects:  
+    		DONE	shake(rotation?) 	- Kailun 
+    		DONE	(size) zoom_out		- Kailun 
+    		DONE	(size) pulse_in		- Kailun/Kamyar
+    		DONE	(size) pulse_out	- Kailun/Kamyar
  					transparency (alpha) - Kamyar?
  					blur				- Antoine
  					interrupted Color 	- Kamyar (if time is permitted)

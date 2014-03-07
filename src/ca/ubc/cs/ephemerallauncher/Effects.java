@@ -19,17 +19,17 @@ public class Effects {
 		changeToColor(icon, 0);
 	}
 
-	// size_zoom_in change
-	public static void changeToSize(Icon icon, int durationMs, int delayMs, float... value) {
+	// animation (interaction) type are defined (currently) in animatedGridView   --KZ 
+	public static void changeSize(Icon icon, int durationMs, int delayMs, float... value) {
 		animateObjectProperty(icon.getImage(), "scaleX", durationMs, delayMs,value);
 		animateObjectProperty(icon.getImage(), "scaleY", durationMs, delayMs,value);
 	}
-
-	// immediate change to size_zoom_in
-	public static void changeToSize(Icon icon) {
-		icon.getGsImage().animate().alpha(0).start(); //hide the grey scale image
-		changeToSize(icon,Parameters.ZOOM_IN__DURATION,Parameters.ZOOM_IN__DELAY,Parameters.ZOOM_IN__INIT_SIZE,Parameters.ZOOM_IN__FINAL_SIZE);
+	
+	// rotation
+	public static void rotate(Icon icon, int durationMs, int delayMs, float... value) {
+		animateObjectProperty(icon.getImage(), "rotation", durationMs, delayMs,value);
 	}
+
 	
 	public static void changeToGreyScale(Icon icon, int durationMs, int startDelayMs) {
 		animateObjectProperty(icon.getGsImage(), "alpha", durationMs, startDelayMs, 1f);
