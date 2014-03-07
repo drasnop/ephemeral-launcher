@@ -26,4 +26,13 @@ public class PagerAdapter extends FragmentPagerAdapter {
 		return Parameters.NUM_PAGES;
 	}
 
+	// helper function to make calls simpler when launching animations
+	public Page getPage(int position){
+		return fragments.get(position);
+	}
+
+	// helper function to make calls simpler when launching animations
+	public Page getPreviousPage() {
+		return fragments.get(previousPosition);
+	}
 }

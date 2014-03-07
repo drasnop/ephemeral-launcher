@@ -1,6 +1,7 @@
 package ca.ubc.cs.ephemerallauncher;
 import java.util.ArrayList;
 
+import ca.ubc.cs.ephemerallauncher.Parameters.Animation;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -42,14 +43,10 @@ public class MainActivity extends FragmentActivity {
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
 
             public void onPageSelected(int position) {
-                Page p = (Page) pagerAdapter.getItem(position);
-                p.getGridView().startEphemeralAnimation("color");
-                
-                Page pp = (Page) pagerAdapter.getItem(pagerAdapter.previousPosition);
-                pp.getGridView().backToPreAnimationState();
+                pagerAdapter.getPage(position).getGridView().startEphemeralAnimation("color");               
+                pagerAdapter.getPreviousPage().getGridView().backToPreAnimationState();
             }
-            
-            
+                      
         });
 	}
 
@@ -65,11 +62,12 @@ public class MainActivity extends FragmentActivity {
 	    // Handle presses on the action bar items
 	    switch (item.getItemId()) {
 	        case R.id.action_temporal:
-	        	// need to add more, if there are more pages
 	        	//((Page) pagerAdapter.getItem(1)).gridview.startEphemeralAnimation("color")
+	        	Parameters.ANIMATION=Animation.COLOR;
 	            return true;
 	        case R.id.action_size:
 	        	//((Page) pagerAdapter.getItem(1)).gridview.startEphemeralAnimation("size");
+	        	Parameters.ANIMATION=Animation.SIZE_ZOOM_IN;
 	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
