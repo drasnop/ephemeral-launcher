@@ -10,7 +10,7 @@ public class PagerAdapter extends FragmentPagerAdapter {
 
 	private ArrayList<Page> fragments;
 	public int currentPosition=0;
-	public int previousPosition;
+	public int previousPosition=0;
 	
 	public PagerAdapter(FragmentManager fm, ArrayList<Page> fragments) {
 		super(fm);

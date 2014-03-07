@@ -1,8 +1,6 @@
 package ca.ubc.cs.ephemerallauncher;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedList;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -11,7 +9,6 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import ca.ubc.cs.ephemerallauncher.Parameters.AnimationType;
 
@@ -39,24 +36,19 @@ public class MainActivity extends FragmentActivity {
 		// Populate pager
 		pagerAdapter = new PagerAdapter(getSupportFragmentManager(), pages);
 		pager.setAdapter(pagerAdapter);
-		Parameters.images_gs = new LinkedList<View>();
-		Parameters.images_gs_2 = new HashSet<View>();
 
 		// Set up animations when changing page
 		pager.setOnPageChangeListener(new OnPageChangeListener() {
 
-			// int previousPosition=pager.getCurrentItem();
-
 			public void onPageScrollStateChanged(int state) {
 				if (state == ViewPager.SCROLL_STATE_DRAGGING) {
-					int position = pagerAdapter.currentPosition;
+					
 					// don't know in which direction we're going! so we do both
+					int position = pagerAdapter.currentPosition;
 					if (position - 1 >= 0)
 						pagerAdapter.getPage(position - 1).getGridView().startPreAnimation();
 					if (position + 1 < Parameters.NUM_PAGES)
 						pagerAdapter.getPage(position + 1).getGridView().startPreAnimation();
-
-					pagerAdapter.previousPosition = pager.getCurrentItem();
 				}
 			}
 
@@ -64,22 +56,16 @@ public class MainActivity extends FragmentActivity {
 			}
 
 			public void onPageSelected(int position) {
+				pagerAdapter.previousPosition=pagerAdapter.currentPosition;
 				pagerAdapter.currentPosition = position;
+				
 				pagerAdapter.getCurrentPage().getGridView().startEphemeralAnimation();
 				pagerAdapter.getPreviousPage().getGridView().backToPreAnimationState();
-
-				Log.v("OnPageChange", "animation _ " + pagerAdapter.getCount() + " "
-						+ pagerAdapter.getCurrentPage().getGridView().getCount() + " "
-						// + ((LinearLayout)((Icon)
-						// pagerAdapter.getCurrentPage().getGridView().getChildAt(0)).getChildAt(0)).getChildCount()
-						// + " "
-						+ Parameters.images_gs.size() + " " + Parameters.images_gs_2.size());
 			}
 
 		});
 
-		// Select initial animation type when the layout has been created, then
-		// plays it
+		// Switch to initial animation type when the layout has been created, then plays it
 
 		pager.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
 			// This is a workaround, but seems to work pretty well...

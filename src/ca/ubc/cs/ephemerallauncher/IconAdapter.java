@@ -42,15 +42,14 @@ public class IconAdapter extends BaseAdapter {
 			// Set up the greyscale image
 			icon.getGsImage().setImageResource(Parameters.images_gs_ID[position]);
 			icon.getGsImage().setVisibility(ViewGroup.GONE);
-			Parameters.images_gs.add(icon.getGsImage());
-			Parameters.images_gs_2.add(icon.findViewById(R.id.image_gs));
 			
 			// The caption
 			icon.getCaption().setText(Parameters.captions_ID[position]);
 			
 		} else {
+			// [AP: I haven't quite figured out when this happens...
 			icon = (Icon) convertView;
-			Log.v("IconAdapter","animation convert view");
+			Log.v("IconAdapter","convert view");
 		}
 
 

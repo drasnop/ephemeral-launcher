@@ -47,17 +47,6 @@ public class Parameters {
 			break;
     	}
     	
-    	// Show / hide particular images if necessary
-    	switch(ANIMATION){
-    	case COLOR:	
-    		//Effects.showAll(images_gs);
-    		break;
-		default:
-			//Effects.hideAll(images_gs);
-			//hideAllGsImages(pagerAdapter);
-			break;
-    	}
-    	
     	// Play animation
     	pagerAdapter.getCurrentPage().getGridView().startPreAnimation();
     	pagerAdapter.getCurrentPage().getGridView().startEphemeralAnimation();
@@ -87,18 +76,4 @@ public class Parameters {
 			R.string.icon_11_cap, R.string.icon_12_cap, R.string.icon_13_cap,
 			R.string.icon_14_cap, R.string.icon_15_cap, R.string.icon_16_cap,
 			R.string.icon_17_cap, R.string.icon_18_cap, R.string.icon_19_cap};
-	
-	
-	// References to the greyscale images
-	public static LinkedList<View> images_gs;
-	
-	public static HashSet<View> images_gs_2;
-	
-/*	private static void hideAllGsImages(PagerAdapter pa){
-		for(int i=0;i<NUM_PAGES;i++){
-			Log.v("Parameters","animation "+pa.getPage(i).getGridView());
-			for(int j=0;j<pa.getPage(i).getGridView().getChildCount();j++)
-				((Icon) pa.getPage(i).getGridView().getChildAt(j)).getGsImage().setVisibility(View.GONE);
-		}
-	}*/
 }

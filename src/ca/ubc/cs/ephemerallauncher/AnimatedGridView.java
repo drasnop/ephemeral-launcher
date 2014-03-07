@@ -58,7 +58,6 @@ public class AnimatedGridView extends GridView {
 
 	public void backToPreAnimationState() {
 		if (Parameters.ANIMATION_HAS_PREANIMATION_STATE){
-			//revertToPreAnimationState();
 			//TODO: stop the current animation! (in case they last 10s or so)
 			for (int i = 0; i < this.getChildCount(); i++)
 				this.getIcon(i).getGsImage().setVisibility(View.GONE);

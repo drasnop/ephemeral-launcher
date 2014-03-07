@@ -37,19 +37,17 @@ public class Effects {
 	}
 	
 	public static void changeToGreyScale(Icon icon, int durationMs, int startDelayMs) {
+		icon.getGsImage().setVisibility(View.VISIBLE);
 		animateObjectProperty(icon.getGsImage(), "alpha", durationMs, startDelayMs, 1f);
 	}
 
 	public static void changeToGreyScale(Icon icon, int durationMs) {
-
 		changeToGreyScale(icon, durationMs, 0);
-
 	};
 
 	// immediate change to grey scale
 	public static void changeToGreyScale(Icon icon) {
 		changeToGreyScale(icon, 0);
-		icon.getGsImage().setVisibility(View.VISIBLE);
 	}
 
 	// a general-purpose animation creator function for changing an arbitrary
