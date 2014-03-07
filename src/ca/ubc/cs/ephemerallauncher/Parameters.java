@@ -15,9 +15,16 @@ public class Parameters {
     public static final boolean HIGLIGHT_ICONS_EARLY = true;			// if true, the icons are highlighted when the user starts scrolling to the next page
     																	// if false, they are highlighted only when the user lands on the next page
     
-    public static final int START_DELAY__COLOR = 500;					// ms
-    public static final int FADE_IN_DURATION__COLOR = 1000;  			// ms
-	
+    // for non-highlighted icons
+    public static final int COLOR__START_DELAY = 500;			// ms 
+    public static final int COLOR__FADE_IN_DURATION = 1000;  	// ms 
+
+	// for highlighted icons
+    public static final float ZOOM_IN__INIT_SIZE = 0f;
+    public static final float ZOOM_IN__FINAL_SIZE = 1;
+    public static final int ZOOM_IN__DURATION_SIZE = 600;  		// ms
+    public static final int ZOOM_IN__DELAY_SIZE = 0;  			// ms
+    
     public static enum AnimationType{
     	COLOR, SIZE_ZOOM_IN
     }

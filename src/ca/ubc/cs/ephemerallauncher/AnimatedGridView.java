@@ -83,8 +83,8 @@ public class AnimatedGridView extends GridView {
 	private void animateOtherIcon(int position) {
 		switch (Parameters.ANIMATION) {
 		case COLOR:
-			Effects.changeToColor(this.getIcon(position), Parameters.FADE_IN_DURATION__COLOR,
-					Parameters.START_DELAY__COLOR);
+			Effects.changeToColor(this.getIcon(position), Parameters.COLOR__FADE_IN_DURATION,
+					Parameters.COLOR__START_DELAY);
 			break;
 		default:
 			break;
