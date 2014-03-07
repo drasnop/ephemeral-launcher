@@ -37,7 +37,8 @@ public class Parameters {
     public static final int TWIST__DELAY = 400;
     public static final int TWIST__1STDURATION = 400;
     public static final int TWIST__2NDDURATION = TOTAL_DURATION - TWIST__1STDURATION;
- /*   public static final int SHAKE__DELAY1 = 150;
+ /* 	a different type of twist/shake   
+  * public static final int SHAKE__DELAY1 = 150;
     public static final int SHAKE__DELAY2 = 300;
     public static final int SHAKE__1ST_DURATION = SHAKE__DELAY1;
     public static final int SHAKE__2ND_DURATION = SHAKE__DELAY2;
