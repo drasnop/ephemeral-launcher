@@ -42,11 +42,13 @@ public class Effects {
 	}
 
 	// transparency
-	public static void fadeIn(Icon icon, int durationMs, int delayMs){
-		animateObjectProperty(icon.getImage(), "alpha", durationMs, delayMs, 1f);
+	public static void fadeIn(Icon icon, int durationMs, int delayMs, float... value){
+		animateObjectProperty(icon.getImage(), "alpha", durationMs, delayMs, value);
+		animateObjectProperty(icon.getCaption(), "alpha", durationMs, delayMs, value);
 	}
-	public static void fadeOut(Icon icon, int durationMs, int delayMs){
-		animateObjectProperty(icon.getImage(), "alpha", durationMs, delayMs, 0f);
+	public static void fadeOut(Icon icon, int durationMs, int delayMs, float... value){
+		animateObjectProperty(icon.getImage(), "alpha", durationMs, delayMs, value);
+		animateObjectProperty(icon.getCaption(), "alpha", durationMs, delayMs, value);
 	}
 	
 	// a general-purpose animation creator function for changing an arbitrary

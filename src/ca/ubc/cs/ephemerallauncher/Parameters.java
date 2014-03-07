@@ -35,6 +35,12 @@ public class Parameters {
     public static final int TWIST__DELAY = 400;
     public static final int TWIST__1STDURATION = 400;
     public static final int TWIST__2NDDURATION = TOTAL_DURATION - TWIST__1STDURATION;
+    // transparency
+    public static final int TRANSPARENCY__DELAY = 300;
+    public static final int TRANSPARENCY__DURATION = 1700;
+    public static final float TRANSPARENCY__INTIAL = 0.3f;
+    
+    
  /* 	a different type of twist/shake   
   * public static final int SHAKE__DELAY1 = 150;
     public static final int SHAKE__DELAY2 = 300;
@@ -57,7 +63,7 @@ public class Parameters {
     		DONE	(size) zoom_out		- Kailun 
     		DONE	(size) pulse_in		- Kailun/Kamyar
     		DONE	(size) pulse_out	- Kailun/Kamyar
- 					transparency (alpha) - Kamyar? Antoine
+ 			DONE	transparency (alpha) - Kamyar? Antoine
  			DONE	blur				- Antoine
  					interrupted Color 	- Kamyar (if time is permitted)
  			comment: for all size animation, the current rule of thumb is to always end at regular size, i.e.,1.

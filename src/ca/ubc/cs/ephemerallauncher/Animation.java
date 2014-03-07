@@ -34,11 +34,11 @@ public class Animation {
 	}
 	
 	public static void fadeIn(Icon icon){
-		Effects.fadeIn(icon,Parameters.COLOR__FADE_IN_DURATION,Parameters.COLOR__START_DELAY);
+		Effects.fadeIn(icon,Parameters.TRANSPARENCY__DURATION,Parameters.TRANSPARENCY__DELAY,Parameters.TRANSPARENCY__INTIAL,1f);
 	};
 	
 	public static void disappear(Icon icon){
-		Effects.fadeOut(icon, 0, 0);
+		Effects.fadeOut(icon, 0, 0,1f,Parameters.TRANSPARENCY__INTIAL);
 	}
 	
 	public static void blur(Icon icon){
