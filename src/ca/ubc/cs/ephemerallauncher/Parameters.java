@@ -1,10 +1,6 @@
 package ca.ubc.cs.ephemerallauncher;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-
 import android.util.Log;
-import android.view.View;
 
 public class Parameters {
 
