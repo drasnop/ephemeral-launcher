@@ -11,6 +11,8 @@ import android.widget.Toast;
  */
 public class AnimatedGridView extends GridView {
 
+	private int[] highlightedIcons = new int[Parameters.NUM_HIGHLIGHTED_ICONS];
+
 	public AnimatedGridView(Context context) {
 		super(context);
 	}
@@ -36,20 +38,30 @@ public class AnimatedGridView extends GridView {
 		});
 
 	}
-	
-	public void startPreAnimation(){
+
+	public void startPreAnimation() {
+
+		for (int i = 0; i < highlightedIcons.length; i++)
+			highlightedIcons[i] = -1;
+
+		int position;
+		int icon_nb = this.getChildCount();
+
+		for (int i = 0; i < Parameters.NUM_HIGHLIGHTED_ICONS; i++) {
+			position = (int) Math.floor(Math.random() * icon_nb);
+			while (!isDifferentFromAllHighlighted(position))
+				position = (int) Math.floor(Math.random() * icon_nb);
+			highlightedIcons[i] = position;
+		}
+
 		if (Parameters.ANIMATION_HAS_PREANIMATION_STATE)
 			startPreAnimationAll();
 	}
-	
-	public void startEphemeralAnimation() {
-		int position;
-		int count = this.getChildCount();
 
-		//TODO: check if the random numbers are all different!!!
-		for (int i = 0; i < Parameters.NUM_HIGHLIGHTED_ICONS; i++) {
-			position = (int) Math.floor(Math.random() * count);
-			highlightIcon(position);
+	public void startEphemeralAnimation() {
+
+		for (int i = 0; i < highlightedIcons.length; i++) {
+			highlightIcon(highlightedIcons[i]);
 		}
 
 		if (Parameters.ANIMATION_AFFECTS_OTHER_ICONS)
@@ -57,8 +69,8 @@ public class AnimatedGridView extends GridView {
 	}
 
 	public void backToPreAnimationState() {
-		if (Parameters.ANIMATION_HAS_PREANIMATION_STATE){
-			//TODO: stop the current animation! (in case they last 10s or so)
+		if (Parameters.ANIMATION_HAS_PREANIMATION_STATE) {
+			// TODO: stop the current animation! (in case they last 10s or so)
 			for (int i = 0; i < this.getChildCount(); i++)
 				this.getIcon(i).getImageGs().setVisibility(View.GONE);
 		}
@@ -95,7 +107,7 @@ public class AnimatedGridView extends GridView {
 			break;
 		}
 	}
-    
+
 	private void animateOtherIcons() {
 		for (int i = 0; i < this.getChildCount(); i++)
 			animateOtherIcon(i);
@@ -108,6 +120,9 @@ public class AnimatedGridView extends GridView {
 			Effects.changeToColor(this.getIcon(position), Parameters.COLOR__FADE_IN_DURATION,
 					Parameters.COLOR__START_DELAY);
 			break;
+		case TRANSPARENCY:
+			if (isDifferentFromAllHighlighted(position))
+				Animation.fadeIn(this.getIcon(position));
 		default:
 			break;
 		}
@@ -125,14 +140,18 @@ public class AnimatedGridView extends GridView {
 			changeMaskImages();
 			Effects.changeToGreyScale(this.getIcon(position));
 			break;
+		case TRANSPARENCY:
+			if (isDifferentFromAllHighlighted(position))
+				Animation.disappear(this.getIcon(position));
+			break;
 		default:
 			break;
 		}
 	}
 
-	private void changeMaskImages(){
-		for (int i = 0; i < this.getChildCount(); i++){
-			switch(Parameters.ANIMATION){
+	private void changeMaskImages() {
+		for (int i = 0; i < this.getChildCount(); i++) {
+			switch (Parameters.ANIMATION) {
 			case COLOR:
 				this.getIcon(i).getImageGs().setImageResource(Parameters.images_gs_ID[i]);
 				break;
@@ -143,5 +162,13 @@ public class AnimatedGridView extends GridView {
 				break;
 			}
 		}
+	}
+
+	private boolean isDifferentFromAllHighlighted(int position) {
+		for (int i = 0; i < highlightedIcons.length; i++) {
+			if (position == highlightedIcons[i])
+				return false;
+		}
+		return true;
 	}
 }

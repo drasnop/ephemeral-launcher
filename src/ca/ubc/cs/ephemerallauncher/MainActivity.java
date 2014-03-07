@@ -109,10 +109,10 @@ public class MainActivity extends FragmentActivity {
 	        case R.id.twist:
 	        	Parameters.switchAnimationTo(AnimationType.TWIST,pagerAdapter);
 	            return true;
-	            /*      case R.id.transparency:
+	        case R.id.transparency:
 	        	Parameters.switchAnimationTo(AnimationType.TRANSPARENCY,pagerAdapter);
 	            return true;
-	        case R.id.interrupted_color:
+	      /*  case R.id.interrupted_color:
 	        	Parameters.switchAnimationTo(AnimationType.INTERRUPTED_COLOR,pagerAdapter);
 	            return true;
 	        	*/

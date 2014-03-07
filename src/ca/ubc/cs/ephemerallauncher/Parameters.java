@@ -44,7 +44,7 @@ public class Parameters {
     
     
     public static enum AnimationType{
-    	COLOR, SIZE_ZOOM_IN, SIZE_ZOOM_OUT, SIZE_PULSE_IN, SIZE_PULSE_OUT, TRANSPARENCY, BLUR, INTERRUPTED_COLOR, TWIST
+    	COLOR, SIZE_ZOOM_IN, SIZE_ZOOM_OUT, SIZE_PULSE_IN, SIZE_PULSE_OUT, TRANSPARENCY, BLUR, TWIST, INTERRUPTED_COLOR
     }
     
     public static void switchAnimationTo(AnimationType type, PagerAdapter pagerAdapter){
@@ -57,7 +57,7 @@ public class Parameters {
     		DONE	(size) zoom_out		- Kailun 
     		DONE	(size) pulse_in		- Kailun/Kamyar
     		DONE	(size) pulse_out	- Kailun/Kamyar
- 					transparency (alpha) - Kamyar?
+ 					transparency (alpha) - Kamyar? Antoine
  			DONE	blur				- Antoine
  					interrupted Color 	- Kamyar (if time is permitted)
  			comment: for all size animation, the current rule of thumb is to always end at regular size, i.e.,1.
@@ -67,6 +67,7 @@ public class Parameters {
     	
     	switch(ANIMATION){
     	case COLOR:
+    	case TRANSPARENCY:
     	case BLUR:	
     		ANIMATION_AFFECTS_OTHER_ICONS=true;
     		ANIMATION_HAS_PREANIMATION_STATE=true;

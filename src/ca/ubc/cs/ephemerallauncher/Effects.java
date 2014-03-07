@@ -1,29 +1,35 @@
 package ca.ubc.cs.ephemerallauncher;
 
-import java.util.LinkedList;
-
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
-import android.util.Log;
 import android.view.View;
 
 
 public class Effects {
 
-	// color change
-	public static void changeToColor(Icon icon, int durationMs, int startDelayMs) {
-		animateObjectProperty(icon.getImageGs(), "alpha", durationMs, startDelayMs, 0f);
-	}
-
-	public static void changeToColor(Icon icon, int durationMs) {
-		changeToColor(icon, durationMs, 0);
-	}
-
 	// immediate change to color
 	public static void changeToColor(Icon icon) {
 		changeToColor(icon, 0);
 	}
-
+	public static void changeToColor(Icon icon, int durationMs) {
+		changeToColor(icon, durationMs, 0);
+	}
+	public static void changeToColor(Icon icon, int durationMs, int startDelayMs) {
+		animateObjectProperty(icon.getImageGs(), "alpha", durationMs, startDelayMs, 0f);
+	}
+	
+	// immediate change to grey scale
+	public static void changeToGreyScale(Icon icon) {
+		changeToGreyScale(icon, 0);
+	}
+	public static void changeToGreyScale(Icon icon, int durationMs) {
+		changeToGreyScale(icon, durationMs, 0);
+	}
+	public static void changeToGreyScale(Icon icon, int durationMs, int startDelayMs) {
+		icon.getImageGs().setVisibility(View.VISIBLE);
+		animateObjectProperty(icon.getImageGs(), "alpha", durationMs, startDelayMs, 1f);
+	}
+	
 	// animation (interaction) type are defined (currently) in animatedGridView   --KZ 
 	public static void changeSize(Icon icon, int durationMs, int delayMs, float... value) {
 		animateObjectProperty(icon.getImage(), "scaleX", durationMs, delayMs,value);
@@ -35,21 +41,14 @@ public class Effects {
 		animateObjectProperty(icon.getImage(), "rotation", durationMs, delayMs,value);
 	}
 
+	// transparency
+	public static void fadeIn(Icon icon, int durationMs, int delayMs){
+		animateObjectProperty(icon.getImage(), "alpha", durationMs, delayMs, 1f);
+	}
+	public static void fadeOut(Icon icon, int durationMs, int delayMs){
+		animateObjectProperty(icon.getImage(), "alpha", durationMs, delayMs, 0f);
+	}
 	
-	public static void changeToGreyScale(Icon icon, int durationMs, int startDelayMs) {
-		icon.getImageGs().setVisibility(View.VISIBLE);
-		animateObjectProperty(icon.getImageGs(), "alpha", durationMs, startDelayMs, 1f);
-	}
-
-	public static void changeToGreyScale(Icon icon, int durationMs) {
-		changeToGreyScale(icon, durationMs, 0);
-	}
-
-	// immediate change to grey scale
-	public static void changeToGreyScale(Icon icon) {
-		changeToGreyScale(icon, 0);
-	}
-
 	// a general-purpose animation creator function for changing an arbitrary
 	// property of an object
 	public static void animateObjectProperty(Object obj, String propertyName, int durationMs, int delayMs,
@@ -85,17 +84,5 @@ public class Effects {
 		});
 
 		animObject.start();
-	}
-	
-	public static void hideAll(LinkedList<View> views){
-		for(View v:views)
-			v.setVisibility(View.GONE);
-
-		Log.v("Effects","animation "+views.size());
-	}
-	
-	public static void showAll(LinkedList<View> views){
-		for(View v:views)
-			v.setVisibility(View.VISIBLE);
 	}
 }

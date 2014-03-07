@@ -33,9 +33,13 @@ public class Animation {
 		Effects.rotate(icon,Parameters.TWIST__2NDDURATION,Parameters.TWIST__DELAY,Parameters.DEGREE_BIG,Parameters.DEGREE_REG);
 	}
 	
-	public static void transparency(Icon icon){
-		//TODO
+	public static void fadeIn(Icon icon){
+		Effects.fadeIn(icon,Parameters.COLOR__FADE_IN_DURATION,Parameters.COLOR__START_DELAY);
 	};
+	
+	public static void disappear(Icon icon){
+		Effects.fadeOut(icon, 0, 0);
+	}
 	
 	public static void blur(Icon icon){
 		//TODO
