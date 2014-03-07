@@ -21,7 +21,7 @@ public class Parameters {
     public static final int DELAY = 0;
     public static final int TOTAL_DURATION = 600;
     // size
-    public static final float SIZE__SMALL = 0.5f;
+    public static final float SIZE__SMALL = 0.7f;
     public static final float SIZE__BIG = 1.25f;
     public static final float SIZE__REG = 1;			// original size
     public static final int ZOOM__DURATION = TOTAL_DURATION;  		// ms
