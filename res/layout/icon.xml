@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ca.ubc.cs.ephemerallauncher.Icon xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="85dp"
-    android:layout_height="85dp"
+    android:layout_height="90dp"
     android:orientation="vertical" >
 
 	<FrameLayout
 	android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
+    
     <ImageView
         android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:gravity="center_horizontal" />
+        android:gravity="top|center_horizontal"
+        android:layout_marginTop="10dp" />
     <ImageView
         android:id="@+id/image_gs"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:gravity="center_horizontal" />
-      
-    </FrameLayout>
-
+        android:gravity="top|center_horizontal"
+       	android:layout_marginTop="10dp" />
     <TextView
         android:id="@+id/caption"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:gravity="center_horizontal" />
+        android:layout_gravity="bottom"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="2dp" />
+      
+    </FrameLayout>
+
 
 </ca.ubc.cs.ephemerallauncher.Icon>

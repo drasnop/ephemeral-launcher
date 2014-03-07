@@ -4,7 +4,7 @@ import android.util.Log;
 
 public class Parameters {
 
-    public static final int NUM_PAGES = 5;
+    public static final int NUM_PAGES = 6;
     public static final int NUM_HIGHLIGHTED_ICONS = 4;
     public static AnimationType ANIMATION = AnimationType.COLOR;		// Will be used as initial animation type
     public static boolean ANIMATION_AFFECTS_OTHER_ICONS;				// Will be initialized automatically
@@ -22,7 +22,7 @@ public class Parameters {
     public static final int TOTAL_DURATION = 600;
     // size
     public static final float SIZE__SMALL = 0.5f;
-    public static final float SIZE__BIG = 1.5f;
+    public static final float SIZE__BIG = 1.25f;
     public static final float SIZE__REG = 1;			// original size
     public static final int ZOOM__DURATION = TOTAL_DURATION;  		// ms
     public static final int PULSE__DELAY = 300;  		
@@ -36,9 +36,9 @@ public class Parameters {
     public static final int TWIST__1STDURATION = 400;
     public static final int TWIST__2NDDURATION = TOTAL_DURATION - TWIST__1STDURATION;
     // transparency
-    public static final int TRANSPARENCY__DELAY = 300;
-    public static final int TRANSPARENCY__DURATION = 1700;
-    public static final float TRANSPARENCY__INTIAL = 0.3f;
+    public static final int TRANSPARENCY__DELAY = 100;
+    public static final int TRANSPARENCY__DURATION = 1500;
+    public static final float TRANSPARENCY__INTIAL = 0.4f;
     
     
  /* 	a different type of twist/shake   
