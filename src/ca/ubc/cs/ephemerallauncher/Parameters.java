@@ -23,26 +23,23 @@ public class Parameters {
     // size
     public static final float SIZE__SMALL = 0.7f;
     public static final float SIZE__BIG = 1.25f;
-    public static final float SIZE__REG = 1;			// original size
+    public static final float SIZE__REG = 1;						// original size
     public static final int ZOOM__DURATION = TOTAL_DURATION;  		// ms
     public static final int PULSE__DELAY = 300;  		
     public static final int PULSE__1STHALF_DURATION = PULSE__DELAY;
     public static final int PULSE__2NDHALF_DURATION = TOTAL_DURATION - PULSE__1STHALF_DURATION;
     // rotation
-    public static final float DEGREE_SMALL = -20f; // rotate from 0 to -60 is counterclockwise rotation; 60f as 60 degree
-    public static final float DEGREE_BIG = 20f;		// [AP] wouldn't it always be - DEGREE_SMALL?
+    public static final float DEGREE_BIG = 20f;	 			// rotate from 0 to -60 is counterclockwise rotation; 60f as 60 degree
+    public static final float DEGREE_SMALL = -DEGREE_BIG;	// [AP] wouldn't it always be - DEGREE_SMALL?
     public static final float DEGREE_REG = 0f;
     public static final int TWIST__DELAY = 400;
-    //public static final int TWIST__0THDURATION = 200;
     public static final int TWIST__0THDURATION_REL = 1;
-    //public static final int TWIST__1STDURATION = 400;
     public static final int TWIST__1STDURATION_REL = 2;
-    //public static final int TWIST__2NDDURATION = TOTAL_DURATION - TWIST__1STDURATION;
     public static final int TWIST__2NDDURATION_REL = 1;
     
     public static final int TWIST_TOTAL_REL_DURATION = TWIST__0THDURATION_REL + TWIST__1STDURATION_REL + TWIST__2NDDURATION_REL;
     
-    public static final int TWIST_REPEAT_NUM = 3;
+    public static final int TWIST_REPEAT_NUM = 1;
     
     public static final int TWIST__0THDURATION = (int)((((float)TWIST__0THDURATION_REL)/((float)(TWIST_REPEAT_NUM * TWIST_TOTAL_REL_DURATION)))*((float)TOTAL_DURATION));
     public static final int TWIST__1STDURATION = (int)((((float)TWIST__1STDURATION_REL)/((float)(TWIST_REPEAT_NUM * TWIST_TOTAL_REL_DURATION)))*((float)TOTAL_DURATION));
