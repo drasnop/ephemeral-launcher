@@ -26,7 +26,7 @@ public class Parameters {
     public static final int ZOOM_IN__DELAY = 0;  			// ms
     
     public static enum AnimationType{
-    	COLOR, SIZE_ZOOM_IN
+    	COLOR, SIZE_ZOOM_IN, SIZE_ZOOM_OUT, SIZE_PULSE_IN, SIZE_PULSE_OUT, TRANSPARENCY, BLUR, INTERRUPTED_COLOR
     }
     
     public static void switchAnimationTo(AnimationType type){
