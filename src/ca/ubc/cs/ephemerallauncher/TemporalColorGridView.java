@@ -38,12 +38,17 @@ public class TemporalColorGridView extends GridView {
 	
 	}
 	
-	public void startEphemeralAnimation() {
+
+	public void startEphemeralAnimation(String effect){
 		int position;
-		int count = this.getChildCount();
-		for (int i = 0; i < Parameters.NUM_HIGHLIGHTED_ICONS; i++) {
-			position = (int) Math.floor(Math.random() * count);
-			changeToColor(position);
+		int count=this.getChildCount();
+		
+		for(int i=0; i<Parameters.NUM_HIGHLIGHTED_ICONS; i++){
+			position=(int) Math.floor(Math.random()*count);
+			
+			if (effect == "color") changeToColor(position);
+			if (effect == "size") changeToSize(position);
+			//else
 		}
 
 		fadeAllToColor();
@@ -63,13 +68,19 @@ public class TemporalColorGridView extends GridView {
 		for (int i = 0; i < this.getChildCount(); i++) {
 			Effects.changeToGreyScale((Icon) this.getChildAt(i));
 		}
+
+	}	
+	
+	//--------KZ
+	private void changeToSize(int position){
+		Effects.changeToSize((Icon) this.getChildAt(position));
 	}
+
 
 	private void fadeAllToColor() {
 		for (int i = 0; i < this.getChildCount(); i++) {
 			Effects.changeToColor((Icon) this.getChildAt(i), Parameters.FADE_IN_DURATION__COLOR,
 					Parameters.START_DELAY__COLOR);
-
 		}
 	}
 }

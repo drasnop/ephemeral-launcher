@@ -34,7 +34,7 @@ public class Page extends Fragment {
 		// Inflate the grid layout for this fragment, then populates it with icons	
 		this.gridview = (TemporalColorGridView) inflater.inflate(R.layout.temporal_color_grid, container, false);
 		gridview.init(mContext);
-	
+
 		return gridview;
 	}
 	

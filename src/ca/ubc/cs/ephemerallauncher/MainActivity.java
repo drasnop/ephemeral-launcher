@@ -43,7 +43,7 @@ public class MainActivity extends FragmentActivity {
 
             public void onPageSelected(int position) {
                 Page p = (Page) pagerAdapter.getItem(position);
-                p.getGridView().startEphemeralAnimation();
+                p.getGridView().startEphemeralAnimation("color");
                 
                 Page pp = (Page) pagerAdapter.getItem(pagerAdapter.previousPosition);
                 pp.getGridView().backToPreAnimationState();
@@ -66,11 +66,10 @@ public class MainActivity extends FragmentActivity {
 	    switch (item.getItemId()) {
 	        case R.id.action_temporal:
 	        	// need to add more, if there are more pages
-	        	//((Page) pagerAdapter.getItem(0)).temporalColorAnimation();
-	        	//((Page) pagerAdapter.getItem(1)).temporalColorAnimation();
+	        	//((Page) pagerAdapter.getItem(1)).gridview.startEphemeralAnimation("color")
 	            return true;
-	        case R.id.action_highlight2:
-	            //composeMessage();
+	        case R.id.action_size:
+	        	//((Page) pagerAdapter.getItem(1)).gridview.startEphemeralAnimation("size");
 	            return true;
 	        default:
 	            return super.onOptionsItemSelected(item);

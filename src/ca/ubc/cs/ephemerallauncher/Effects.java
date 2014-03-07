@@ -1,7 +1,13 @@
 package ca.ubc.cs.ephemerallauncher;
 
 import android.animation.Animator;
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
+// import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 public class Effects {
 
@@ -18,6 +24,18 @@ public class Effects {
 		changeToColor(icon, 0);
 	}
 
+	// could be incorporated into animateObjectProperty
+	public static void changeToSize(Icon icon) {
+		icon.getGsImage().animate().alpha(0).start();
+	
+		PropertyValuesHolder scaleY = PropertyValuesHolder.ofFloat(icon.getImage().SCALE_Y, 0, 1);
+		PropertyValuesHolder scaleX = PropertyValuesHolder.ofFloat(icon.getImage().SCALE_X, 0, 1);
+
+		ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(icon.getImage(), scaleY, scaleX);
+		animator.setDuration(600); // 800ms
+		animator.start();
+	}
+	
 	public static void changeToGreyScale(Icon icon, long durationMs, long startDelayMs) {
 		animateObjectProperty(icon.getGsImage(), "alpha", durationMs, startDelayMs, 1f);
 	}
