@@ -59,7 +59,8 @@ public class MainActivity extends FragmentActivity {
 	        case R.id.action_temporal:
 	        	// need to add more, if there are more pages
 	        	//((Page) pagerAdapter.getItem(1)).gridview.startEphemeralAnimation("color")
-	            return true;
+	            //Parameters.ANIMATION=COLOR;
+	        	return true;
 	        case R.id.action_size:
 	        	//((Page) pagerAdapter.getItem(1)).gridview.startEphemeralAnimation("size");
 	            return true;
