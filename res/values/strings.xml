@@ -4,10 +4,14 @@
     <string name="app_name">EphemeralLauncher</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string name="size">Size</string>
-    <string name="highlight_temporal">Temporal</string>
-    
-    
+    <string name="zoom_in">Zoom In</string>
+    <string name="transparency">Transparency</string>
+    <string name="color">Color</string>
+    <string name="zoom_out">Zoom Out</string>
+    <string name="pulse_out">Pulse Out</string>
+    <string name="pulse_in">Pulse In</string>
+    <string name="interrupted_color">Interruped Color</string>
+    <string name="blur">Blur</string>
     
     <string name="icon_0_cap">icon 0</string>
     <string name="icon_1_cap">icon 1</string>

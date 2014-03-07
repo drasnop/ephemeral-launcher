@@ -54,8 +54,6 @@ public class MainActivity extends FragmentActivity {
 		pager.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
 			public void onGlobalLayout() {
 				Parameters.switchAnimationTo(Parameters.ANIMATION);	
-//				pagerAdapter.getPage(0).getGridView().backToPreAnimationState();
-//				pagerAdapter.getPage(0).getGridView().startEphemeralAnimation();
 			}
 		});
 	}
@@ -71,12 +69,10 @@ public class MainActivity extends FragmentActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Handle presses on the action bar items
 	    switch (item.getItemId()) {
-	        case R.id.action_temporal:
-	        	//((Page) pagerAdapter.getItem(1)).gridview.startEphemeralAnimation("color")
+	        case R.id.color:
 	        	Parameters.switchAnimationTo(AnimationType.COLOR);
 	            return true;
-	        case R.id.action_size:
-	        	//((Page) pagerAdapter.getItem(1)).gridview.startEphemeralAnimation("size");
+	        case R.id.zoom_in:
 	        	Parameters.switchAnimationTo(AnimationType.SIZE_ZOOM_IN);
 	            return true;
 	        default:

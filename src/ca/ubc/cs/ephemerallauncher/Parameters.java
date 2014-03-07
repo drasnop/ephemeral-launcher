@@ -22,8 +22,8 @@ public class Parameters {
 	// for highlighted icons
     public static final float ZOOM_IN__INIT_SIZE = 0f;
     public static final float ZOOM_IN__FINAL_SIZE = 1;
-    public static final int ZOOM_IN__DURATION_SIZE = 600;  		// ms
-    public static final int ZOOM_IN__DELAY_SIZE = 0;  			// ms
+    public static final int ZOOM_IN__DURATION = 600;  		// ms
+    public static final int ZOOM_IN__DELAY = 0;  			// ms
     
     public static enum AnimationType{
     	COLOR, SIZE_ZOOM_IN
@@ -31,6 +31,19 @@ public class Parameters {
     
     public static void switchAnimationTo(AnimationType type){
     	ANIMATION=type;
+    	/* 1. Antoine - anything not related to effect (mostly pre-swipe display)
+    	   2. New effects: 
+    				shake(rotation?) 	- Kailun 
+    				(size) zoom_out		- Kailun
+    				(size) pulse_in		- Kailun/Kamyar
+    				(size) pulse_out	- Kailun/Kamyar
+ 					transparency (alpha) - Kamyar?
+ 					blur				- Antoine
+ 					interrupted Color 	- Kamyar (if time is permitted)
+ 			comment: for all size animation, the current rule of thumb is to always end at regular size, i.e.,1.
+ 			3. Kailun - (if time permitted) setup menu and sub-menu (for color and size effect) 
+    	
+*/
     	
     	switch(ANIMATION){
     	case COLOR:	

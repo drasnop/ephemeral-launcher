@@ -1,13 +1,40 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/action_temporal"        
+        android:id="@+id/color"        
         android:showAsAction="never"
-        android:title="@string/highlight_temporal"/>
+        android:title="@string/color"/>
 
-    <item android:id="@+id/action_size"
-          android:title="@string/size"
+    <item android:id="@+id/interrupted_color"
+          android:title="@string/interrupted_color"
           android:showAsAction="never" />
+    
+    <item android:id="@+id/transparency"
+          android:title="@string/transparency"
+          android:showAsAction="never" /> 
+    
+          
+    <item android:id="@+id/zoom_in"
+          android:title="@string/zoom_in"
+          android:showAsAction="never" />
+    
+    <item android:id="@+id/zoom_out"
+          android:title="@string/zoom_out"
+          android:showAsAction="never" />
+    
+    <item android:id="@+id/pulse_in"
+          android:title="@string/pulse_in"
+          android:showAsAction="never" />
+    
+    <item android:id="@+id/pulse_out"
+          android:title="@string/pulse_out"
+          android:showAsAction="never" /> 
+          
+    <item android:id="@+id/blur"
+          android:title="@string/blur"
+          android:showAsAction="never" /> 
+    
+    
 
 <!--android:orderInCategory="100"-->
 
