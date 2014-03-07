@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 
 
 public class MainActivity extends FragmentActivity {
@@ -48,6 +49,13 @@ public class MainActivity extends FragmentActivity {
             }
                       
         });
+        
+        // Select initial animation type when the layout has been created
+		pager.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+			public void onGlobalLayout() {
+				Parameters.switchAnimationTo(Parameters.ANIMATION);				
+			}
+		});
 	}
 
 	@Override

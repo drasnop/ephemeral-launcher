@@ -14,7 +14,7 @@ public class IconAdapter extends BaseAdapter {
 	}
 
 	public int getCount() {
-		return Parameters.images.length;
+		return Parameters.images_ID.length;
 	}
 
 	public Object getItem(int position) {
@@ -38,16 +38,14 @@ public class IconAdapter extends BaseAdapter {
 		}
 
 		// Set up the colored image
-		icon.getImage().setImageResource(Parameters.images[position]);
-		//icon.image().setAlpha(0f);
+		icon.getImage().setImageResource(Parameters.images_ID[position]);
 
 		// Set up the greyscale image
-		icon.getGsImage().setImageResource(Parameters.images_gs[position]);
-		//icon.image_gs().setAlpha(1f);
+		icon.getGsImage().setImageResource(Parameters.images_gs_ID[position]);
+		Parameters.images_gs.add(icon.getGsImage());
 
 		// The caption
-		//icon.caption().setText("caption");
-		icon.getCaption().setText(Parameters.captions[position]);
+		icon.getCaption().setText(Parameters.captions_ID[position]);
 
 		return icon;
 	}
