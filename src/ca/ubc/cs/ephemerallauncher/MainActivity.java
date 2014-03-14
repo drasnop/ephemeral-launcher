@@ -112,14 +112,26 @@ public class MainActivity extends FragmentActivity {
 	        case R.id.transparency:
 	        	Parameters.switchAnimationTo(AnimationType.TRANSPARENCY,pagerAdapter);
 	            return true;
-	      /*  case R.id.interrupted_color:
-	        	Parameters.switchAnimationTo(AnimationType.INTERRUPTED_COLOR,pagerAdapter);
-	            return true;
-	        	*/
-	        
 	        case R.id.blur:
 	        	Parameters.switchAnimationTo(AnimationType.BLUR,pagerAdapter);
 	            return true;
+	        case R.id.change_bkg:
+	        	switch(Parameters.BACKGROUND){
+	        	case 0:
+	        		Parameters.BACKGROUND=1;
+	        		this.findViewById(R.id.pager).setBackgroundResource(R.drawable.ios_background);
+	        		break;
+	        	case 1:
+	        		Parameters.BACKGROUND=2;
+	        		this.findViewById(R.id.pager).setBackgroundResource(R.color.lightgrey);
+	        		break;   
+	        	case 2:
+	        		Parameters.BACKGROUND=0;
+	        		this.findViewById(R.id.pager).setBackgroundResource(R.color.darkgrey);
+	        		break; 
+	        	}
+	        	pagerAdapter.getCurrentPage().getGridView().changeTextColor();
+	        	return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }

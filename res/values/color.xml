@@ -8,5 +8,6 @@
     <color name="lightorange">#FFBB33</color>
     
     <color name="darkgrey">#444444</color>
+    <color name="lightgrey">#dddddd</color>
 	<color name="white">#FFFFFF</color>
 </resources>

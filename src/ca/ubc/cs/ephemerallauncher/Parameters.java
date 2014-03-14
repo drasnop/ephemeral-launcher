@@ -29,7 +29,7 @@ public class Parameters {
     public static final int PULSE__1STHALF_DURATION = PULSE__DELAY;
     public static final int PULSE__2NDHALF_DURATION = TOTAL_DURATION - PULSE__1STHALF_DURATION;
     // rotation
-    public static final float DEGREE_BIG = 20f;	 			// rotate from 0 to -60 is counterclockwise rotation; 60f as 60 degree
+    public static final float DEGREE_BIG = 15f;	 			// rotate from 0 to -60 is counterclockwise rotation; 60f as 60 degree
     public static final float DEGREE_SMALL = -DEGREE_BIG;	// [AP] wouldn't it always be - DEGREE_SMALL?
     public static final float DEGREE_REG = 0f;
     public static final int TWIST__DELAY = 400;
@@ -51,37 +51,17 @@ public class Parameters {
     public static final int TRANSPARENCY__DURATION = 1500;
     public static final float TRANSPARENCY__INTIAL = 0.4f;
     
-    
- /* 	a different type of twist/shake   
-  * public static final int SHAKE__DELAY1 = 150;
-    public static final int SHAKE__DELAY2 = 300;
-    public static final int SHAKE__1ST_DURATION = SHAKE__DELAY1;
-    public static final int SHAKE__2ND_DURATION = SHAKE__DELAY2;
-    public static final int SHAKE__3RD_DURATION = TOTAL_DURATION - SHAKE__DELAY1 - SHAKE__DELAY2;*/
-    
+    public static int BACKGROUND=1;		// 0=dark 1=ios 2=light
     
     public static enum AnimationType{
-    	COLOR, SIZE_ZOOM_IN, SIZE_ZOOM_OUT, SIZE_PULSE_IN, SIZE_PULSE_OUT, TRANSPARENCY, BLUR, TWIST, INTERRUPTED_COLOR
+    	COLOR, SIZE_ZOOM_IN, SIZE_ZOOM_OUT, SIZE_PULSE_IN, SIZE_PULSE_OUT, TRANSPARENCY, BLUR, TWIST
     }
     
     public static void switchAnimationTo(AnimationType type, PagerAdapter pagerAdapter){
     	Log.v("Parameters","animation");
     	
     	ANIMATION=type;
-    	/* 1. Antoine - anything not related to effect (mostly pre-swipe display) DONE (almost)
-    	   2. New effects:  
-    		DONE	shake(rotation?) 	- Kailun 
-    		DONE	(size) zoom_out		- Kailun 
-    		DONE	(size) pulse_in		- Kailun/Kamyar
-    		DONE	(size) pulse_out	- Kailun/Kamyar
- 			DONE	transparency (alpha) - Kamyar? Antoine
- 			DONE	blur				- Antoine
- 					interrupted Color 	- Kamyar (if time is permitted)
- 			comment: for all size animation, the current rule of thumb is to always end at regular size, i.e.,1.
- 			3. Kailun - (if time permitted) setup menu and sub-menu (for color and size effect) 
-    	
-*/
-    	
+ 	
     	switch(ANIMATION){
     	case COLOR:
     	case TRANSPARENCY:

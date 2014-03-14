@@ -2,13 +2,17 @@
 
     <item
         android:id="@+id/color"        
-        android:showAsAction="never"
-        android:title="@string/color"/>
-
-  <!--  <item android:id="@+id/interrupted_color"
-          android:title="@string/interrupted_color"
-          android:showAsAction="never" /> -->
+        android:title="@string/color"
+        android:showAsAction="never" />
     
+    <item android:id="@+id/blur"
+          android:title="@string/blur"
+          android:showAsAction="never" /> 
+          
+    <item android:id="@+id/transparency"
+          android:title="@string/transparency"
+          android:showAsAction="never" /> 
+          
     <item android:id="@+id/zoom_in"
           android:title="@string/zoom_in"
           android:showAsAction="never" />
@@ -25,16 +29,12 @@
           android:title="@string/pulse_out"
           android:showAsAction="never" /> 
        
-    <item android:id="@+id/transparency"
-          android:title="@string/transparency"
-          android:showAsAction="never" /> 
-          
-    <item android:id="@+id/blur"
-          android:title="@string/blur"
-          android:showAsAction="never" /> 
-          
     <item android:id="@+id/twist"
           android:title="@string/twist"
+          android:showAsAction="never" /> 
+          
+    <item android:id="@+id/change_bkg"
+          android:title="@string/change_bkg"
           android:showAsAction="never" /> 
     
 

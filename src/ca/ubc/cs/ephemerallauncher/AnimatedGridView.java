@@ -82,11 +82,37 @@ public class AnimatedGridView extends GridView {
 		return (Icon) this.getChildAt(position);
 	}
 
+	private void startPreAnimationAll() {
+		for (int i = 0; i < this.getChildCount(); i++)
+			startPreAnimation(i);
+	}
+
+	private void startPreAnimation(int position) {
+		switch (Parameters.ANIMATION) {
+		case COLOR:
+		case BLUR:
+			if(isDifferentFromAllHighlighted(position)){
+				changeMaskImages();
+				Effects.changeToGreyScale(this.getIcon(position));
+			}
+			break;
+		case TRANSPARENCY:
+			if (isDifferentFromAllHighlighted(position))
+				Animation.disappear(this.getIcon(position));
+			break;
+		default:
+			break;
+		}
+		
+		// stupid function call to change the color of the captions
+		changeTextColor();
+	}
+	
 	private void highlightIcon(int position) {
 		switch (Parameters.ANIMATION) {
 		case COLOR:
 		case BLUR:
-			Animation.color(this.getIcon(position));
+			// Animation.color(this.getIcon(position));    not any more
 			break;
 		case SIZE_ZOOM_IN:
 			Animation.zoom_in(this.getIcon(position));
@@ -128,26 +154,6 @@ public class AnimatedGridView extends GridView {
 		}
 	}
 
-	private void startPreAnimationAll() {
-		for (int i = 0; i < this.getChildCount(); i++)
-			startPreAnimation(i);
-	}
-
-	private void startPreAnimation(int position) {
-		switch (Parameters.ANIMATION) {
-		case COLOR:
-		case BLUR:
-			changeMaskImages();
-			Effects.changeToGreyScale(this.getIcon(position));
-			break;
-		case TRANSPARENCY:
-			if (isDifferentFromAllHighlighted(position))
-				Animation.disappear(this.getIcon(position));
-			break;
-		default:
-			break;
-		}
-	}
 
 	private void changeMaskImages() {
 		for (int i = 0; i < this.getChildCount(); i++) {
@@ -157,6 +163,23 @@ public class AnimatedGridView extends GridView {
 				break;
 			case BLUR:
 				this.getIcon(i).getImageGs().setImageResource(Parameters.images_b_ID[i]);
+				break;
+			default:
+				break;
+			}
+		}
+	}
+	
+	// Stupid function required because we can't change the text color globally!
+	void changeTextColor() {
+		for (int i = 0; i < this.getChildCount(); i++) {
+			switch (Parameters.BACKGROUND) {
+			case 0:
+			case 1:
+				this.getIcon(i).getCaption().setTextColor(getResources().getColor(R.color.white));
+				break;
+			case 2:
+				this.getIcon(i).getCaption().setTextColor(getResources().getColor(R.color.darkgrey));
 				break;
 			default:
 				break;
