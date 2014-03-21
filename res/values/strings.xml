@@ -12,6 +12,7 @@
     <string name="pulse_in">Pulse In</string>
     <string name="interrupted_color">Interruped Color</string>
     <string name="blur">Blur</string>
+    <string name="color_blur">Color+blur</string>
     <string name="twist">Twist</string>
     <string name="change_bkg">Change background</string>
     
