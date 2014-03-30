@@ -41,6 +41,7 @@ public class MainActivity extends FragmentActivity {
 		pager.setOnPageChangeListener(new OnPageChangeListener() {
 
 			public void onPageScrollStateChanged(int state) {
+
 				if (state == ViewPager.SCROLL_STATE_DRAGGING) {
 					
 					// don't know in which direction we're going! so we do both
@@ -53,6 +54,7 @@ public class MainActivity extends FragmentActivity {
 			}
 
 			public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+				
 			}
 
 			public void onPageSelected(int position) {

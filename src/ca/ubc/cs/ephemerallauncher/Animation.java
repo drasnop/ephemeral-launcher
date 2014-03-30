@@ -1,28 +1,47 @@
 package ca.ubc.cs.ephemerallauncher;
 
+import java.util.ArrayList;
+
+import android.animation.Animator;
+
+
+
+
 
 public class Animation {
+	
+	private static ArrayList<Animator> animatorList = new ArrayList<Animator>();
+	
+	public static void stopAll(){
+		for (int i = 0; i < animatorList.size(); i++)
+		{
+			animatorList.get(i).end();
+		}
+		animatorList.clear();
+		
+		
+	}
 
 	public static void color(Icon icon){
-		Effects.changeToColor(icon);
+		animatorList.add(Effects.changeToColor(icon));
 	};
 	
 	public static void zoom_in(Icon icon){
-		Effects.changeSize(icon,Parameters.ZOOM__DURATION,Parameters.DELAY,Parameters.SIZE__SMALL,Parameters.SIZE__REG);
+		animatorList.add(Effects.changeSize(icon,Parameters.ZOOM__DURATION,Parameters.DELAY,Parameters.SIZE__SMALL,Parameters.SIZE__REG));
 	}
 	
 	public static void zoom_out(Icon icon){
-		Effects.changeSize(icon,Parameters.ZOOM__DURATION,Parameters.DELAY,Parameters.SIZE__BIG,Parameters.SIZE__REG);
+		animatorList.add(Effects.changeSize(icon,Parameters.ZOOM__DURATION,Parameters.DELAY,Parameters.SIZE__BIG,Parameters.SIZE__REG));
 	}
 	
 	public static void pulse_in(Icon icon){
-		Effects.changeSize(icon,Parameters.PULSE__1STHALF_DURATION,Parameters.DELAY,Parameters.SIZE__REG,Parameters.SIZE__SMALL);
-		Effects.changeSize(icon,Parameters.PULSE__2NDHALF_DURATION,Parameters.PULSE__DELAY,Parameters.SIZE__SMALL,Parameters.SIZE__REG);
+		/*animatorList.add(Effects.changeSize(icon,Parameters.PULSE__1STHALF_DURATION,Parameters.DELAY,Parameters.SIZE__REG,Parameters.SIZE__SMALL));
+		animatorList.add(Effects.changeSize(icon,Parameters.PULSE__2NDHALF_DURATION,Parameters.PULSE__DELAY,Parameters.SIZE__SMALL,Parameters.SIZE__REG));*/
 	}
 	
 	public static void pulse_out(Icon icon){
-		Effects.changeSize(icon,Parameters.PULSE__1STHALF_DURATION,Parameters.DELAY,Parameters.SIZE__REG,Parameters.SIZE__BIG);
-		Effects.changeSize(icon,Parameters.PULSE__2NDHALF_DURATION,Parameters.PULSE__DELAY,Parameters.SIZE__BIG,Parameters.SIZE__REG);
+		animatorList.add(Effects.changeSize(icon,Parameters.PULSE__1STHALF_DURATION,Parameters.DELAY,Parameters.SIZE__REG,Parameters.SIZE__BIG));
+		animatorList.add(Effects.changeSize(icon,Parameters.PULSE__2NDHALF_DURATION,Parameters.PULSE__DELAY,Parameters.SIZE__BIG,Parameters.SIZE__REG));
 	}
 	
 	public static void twist(Icon icon){
@@ -49,24 +68,24 @@ public class Animation {
 
 		
 		for (int i=0; i < repeatNum; i++){
-			Effects.rotate(icon, duration0, accumulatedDelay, Parameters.DEGREE_REG, Parameters.DEGREE_SMALL);
+			animatorList.add(Effects.rotate(icon, duration0, accumulatedDelay, Parameters.DEGREE_REG, Parameters.DEGREE_SMALL));
 			accumulatedDelay += duration0;
 			
-			Effects.rotate(icon,duration1,accumulatedDelay,Parameters.DEGREE_BIG);
+			animatorList.add(Effects.rotate(icon,duration1,accumulatedDelay,Parameters.DEGREE_BIG));
 			accumulatedDelay += duration1;
 			
-			Effects.rotate(icon,duration2, accumulatedDelay,Parameters.DEGREE_REG);
+			animatorList.add(Effects.rotate(icon,duration2, accumulatedDelay,Parameters.DEGREE_REG));
 			accumulatedDelay += duration2;
 		}
 	}
 	
 	
 	public static void fadeIn(Icon icon){
-		Effects.fadeIn(icon,Parameters.TRANSPARENCY__DURATION,Parameters.TRANSPARENCY__DELAY,Parameters.TRANSPARENCY__INTIAL,1f);
+		animatorList.add(Effects.fadeIn(icon,Parameters.TRANSPARENCY__DURATION,Parameters.TRANSPARENCY__DELAY,Parameters.TRANSPARENCY__INTIAL,1f));
 	};
 	
 	public static void disappear(Icon icon){
-		Effects.fadeOut(icon, 0, 0,1f,Parameters.TRANSPARENCY__INTIAL);
+		animatorList.add(Effects.fadeOut(icon, 0, 0,1f,Parameters.TRANSPARENCY__INTIAL));
 	}
 	
 	public static void blur(Icon icon){

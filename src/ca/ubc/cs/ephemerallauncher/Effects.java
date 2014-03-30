@@ -1,6 +1,7 @@
 package ca.ubc.cs.ephemerallauncher;
 
 import android.animation.Animator;
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.view.View;
 
@@ -8,47 +9,51 @@ import android.view.View;
 public class Effects {
 
 	// immediate change to color
-	public static void changeToColor(Icon icon) {
-		changeToColor(icon, 0);
+	public static Animator changeToColor(Icon icon) {
+		return changeToColor(icon, 0);
 	}
-	public static void changeToColor(Icon icon, int durationMs) {
-		changeToColor(icon, durationMs, 0);
+	public static Animator changeToColor(Icon icon, int durationMs) {
+		return changeToColor(icon, durationMs, 0);
 	}
-	public static void changeToColor(Icon icon, int durationMs, int startDelayMs) {
-		animateObjectProperty(icon.getImageGs(), "alpha", durationMs, startDelayMs, 0f);
+	public static Animator changeToColor(Icon icon, int durationMs, int startDelayMs) {
+		return animateObjectProperty(icon.getImageGs(), "alpha", durationMs, startDelayMs, 0f);
 	}
 	
 	// immediate change to grey scale
-	public static void changeToGreyScale(Icon icon) {
-		changeToGreyScale(icon, 0);
+	public static Animator changeToGreyScale(Icon icon) {
+		return changeToGreyScale(icon, 0);
 	}
-	public static void changeToGreyScale(Icon icon, int durationMs) {
-		changeToGreyScale(icon, durationMs, 0);
+	public static Animator changeToGreyScale(Icon icon, int durationMs) {
+		return changeToGreyScale(icon, durationMs, 0);
 	}
-	public static void changeToGreyScale(Icon icon, int durationMs, int startDelayMs) {
+	public static Animator changeToGreyScale(Icon icon, int durationMs, int startDelayMs) {
+
 		icon.getImageGs().setVisibility(View.VISIBLE);
-		animateObjectProperty(icon.getImageGs(), "alpha", durationMs, startDelayMs, 1f);
+		return animateObjectProperty(icon.getImageGs(), "alpha", durationMs, startDelayMs, 1f);
 	}
 	
 	// animation (interaction) type are defined (currently) in animatedGridView   --KZ 
-	public static void changeSize(Icon icon, int durationMs, int delayMs, float... value) {
-		animateObjectProperty(icon.getImage(), "scaleX", durationMs, delayMs,value);
-		animateObjectProperty(icon.getImage(), "scaleY", durationMs, delayMs,value);
+	public static Animator changeSize(Icon icon, int durationMs, int delayMs, float... value) {
+		AnimatorSet animatorSet = new AnimatorSet();
+		animatorSet.playTogether(animateObjectProperty(icon.getImage(), "scaleX", durationMs, delayMs,value),animateObjectProperty(icon.getImage(), "scaleY", durationMs, delayMs,value));
+		return animatorSet;
 	}
 	
 	// rotation
-	public static void rotate(Icon icon, int durationMs, int delayMs, float... value) {
-		animateObjectProperty(icon.getImage(), "rotation", durationMs, delayMs,value);
+	public static Animator rotate(Icon icon, int durationMs, int delayMs, float... value) {
+		return animateObjectProperty(icon.getImage(), "rotation", durationMs, delayMs,value);
 	}
 
 	// transparency
-	public static void fadeIn(Icon icon, int durationMs, int delayMs, float... value){
-		animateObjectProperty(icon.getImage(), "alpha", durationMs, delayMs, value);
-		animateObjectProperty(icon.getCaption(), "alpha", durationMs, delayMs, value);
+	public static Animator fadeIn(Icon icon, int durationMs, int delayMs, float... value){
+		AnimatorSet animatorSet = new AnimatorSet();
+		animatorSet.playTogether(animateObjectProperty(icon.getImage(), "alpha", durationMs, delayMs, value),animateObjectProperty(icon.getCaption(), "alpha", durationMs, delayMs, value));
+		return animatorSet;
 	}
-	public static void fadeOut(Icon icon, int durationMs, int delayMs, float... value){
-		animateObjectProperty(icon.getImage(), "alpha", durationMs, delayMs, value);
-		animateObjectProperty(icon.getCaption(), "alpha", durationMs, delayMs, value);
+	public static Animator fadeOut(Icon icon, int durationMs, int delayMs, float... value){
+		AnimatorSet animatorSet = new AnimatorSet();
+		animatorSet.playTogether(animateObjectProperty(icon.getImage(), "alpha", durationMs, delayMs, value),animateObjectProperty(icon.getCaption(), "alpha", durationMs, delayMs, value));
+		return animatorSet;
 	}
 	
 
