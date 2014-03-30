@@ -46,10 +46,11 @@ public class MainActivity extends FragmentActivity {
 					
 					// don't know in which direction we're going! so we do both
 					int position = pagerAdapter.currentPosition;
+					
 					if (position - 1 >= 0)
 						pagerAdapter.getPage(position - 1).getGridView().startPreAnimation();
 					if (position + 1 < Parameters.NUM_PAGES)
-						pagerAdapter.getPage(position + 1).getGridView().startPreAnimation();
+						pagerAdapter.getPage(position + 1).getGridView().startPreAnimation(); 
 				}
 			}
 

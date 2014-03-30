@@ -32,7 +32,10 @@ public class Page extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		
 		// Inflate the grid layout for this fragment, then populates it with icons	
+		
 		this.gridview = (AnimatedGridView) inflater.inflate(R.layout.animated_grid, container, false);
+		
+		
 		gridview.init(mContext);
 
 		return gridview;

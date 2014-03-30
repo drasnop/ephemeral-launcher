@@ -46,16 +46,20 @@ public class AnimatedGridView extends GridView {
 
 		int position;
 		int icon_nb = this.getChildCount();
-
+		
 		for (int i = 0; i < Parameters.NUM_HIGHLIGHTED_ICONS; i++) {
-			position = (int) Math.floor(Math.random() * icon_nb);
+			
+			/*position = (int) Math.floor(Math.random() * icon_nb);
 			while (!isDifferentFromAllHighlighted(position))
-				position = (int) Math.floor(Math.random() * icon_nb);
+				position = (int) Math.floor(Math.random() * icon_nb);*/
+			position = i;
 			highlightedIcons[i] = position;
-		}
+		} 
+		
+		
 
 		if (Parameters.ANIMATION_HAS_PREANIMATION_STATE)
-			startPreAnimationAll();
+			startPreAnimationAllIcons();
 	}
 
 	public void startEphemeralAnimation() {
@@ -82,12 +86,13 @@ public class AnimatedGridView extends GridView {
 		return (Icon) this.getChildAt(position);
 	}
 
-	private void startPreAnimationAll() {
+	private void startPreAnimationAllIcons() {
 		for (int i = 0; i < this.getChildCount(); i++)
 			startPreAnimation(i);
 	}
 
 	private void startPreAnimation(int position) {
+		
 		switch (Parameters.ANIMATION) {
 		case COLOR:
 		case BLUR:
