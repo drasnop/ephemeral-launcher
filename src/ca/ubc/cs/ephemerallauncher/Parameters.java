@@ -5,6 +5,7 @@ import android.util.Log;
 public class Parameters {
 
     public static final int NUM_PAGES = 6;
+    public static final int NUM_ICONS_PER_PAGE = 20;
     public static final int NUM_HIGHLIGHTED_ICONS = 4;
     public static AnimationType ANIMATION = AnimationType.COLOR;		// Will be used as initial animation type
     public static boolean ANIMATION_AFFECTS_OTHER_ICONS;				// Will be initialized automatically

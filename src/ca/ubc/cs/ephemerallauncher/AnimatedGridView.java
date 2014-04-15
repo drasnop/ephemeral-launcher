@@ -1,5 +1,8 @@
 package ca.ubc.cs.ephemerallauncher;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
@@ -41,22 +44,14 @@ public class AnimatedGridView extends GridView {
 
 	public void startPreAnimation() {
 
-		for (int i = 0; i < highlightedIcons.length; i++)
-			highlightedIcons[i] = -1;
-
-		int position;
-		int icon_nb = this.getChildCount();
+		ArrayList<Integer> positions = new ArrayList<Integer>();
+		for (int i = 0; i < Parameters.NUM_ICONS_PER_PAGE; i++)
+			positions.add(i);
 		
-		for (int i = 0; i < Parameters.NUM_HIGHLIGHTED_ICONS; i++) {
-			
-			/*position = (int) Math.floor(Math.random() * icon_nb);
-			while (!isDifferentFromAllHighlighted(position))
-				position = (int) Math.floor(Math.random() * icon_nb);*/
-			position = i;
-			highlightedIcons[i] = position;
-		} 
+		Collections.shuffle(positions);
 		
-		
+		for(int i=0; i<Parameters.NUM_HIGHLIGHTED_ICONS;i++)
+			highlightedIcons[i] = positions.get(i);	
 
 		if (Parameters.ANIMATION_HAS_PREANIMATION_STATE)
 			startPreAnimationAllIcons();
