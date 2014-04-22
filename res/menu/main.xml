@@ -6,7 +6,7 @@
         android:showAsAction="never" />
     
     <item android:id="@+id/blur"
-          android:title="@string/color_blur"
+          android:title="@string/blur"
           android:showAsAction="never" /> 
           
     <item android:id="@+id/transparency"
