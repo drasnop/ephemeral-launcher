@@ -3,6 +3,14 @@ package ca.ubc.cs.ephemerallauncher;
 import android.util.Log;
 
 public class Parameters {
+	
+	public static void propagateParameters(){
+		TWIST__0THDURATION = (int)((((float)TWIST__0THDURATION_REL)/((float)(TWIST_REPEAT_NUM * TWIST_TOTAL_REL_DURATION)))*((float)TOTAL_DURATION));
+	    TWIST__1STDURATION = (int)((((float)TWIST__1STDURATION_REL)/((float)(TWIST_REPEAT_NUM * TWIST_TOTAL_REL_DURATION)))*((float)TOTAL_DURATION));
+	    TWIST__2NDDURATION = (int)((((float)TWIST__2NDDURATION_REL)/((float)(TWIST_REPEAT_NUM * TWIST_TOTAL_REL_DURATION)))*((float)TOTAL_DURATION));
+	    PULSE__1STHALF_DURATION = (TOTAL_DURATION / 2);
+	    PULSE__2NDHALF_DURATION = TOTAL_DURATION - PULSE__1STHALF_DURATION;
+	}
 
     public static final int NUM_PAGES = 6;
     public static final int NUM_ICONS_PER_PAGE = 20;
@@ -19,16 +27,23 @@ public class Parameters {
     public static final int COLOR__FADE_IN_DURATION = 1000;  	// ms 
 
 	// for highlighted icons
-    public static final int DELAY = 0;
-    public static final int TOTAL_DURATION = 600;
+    // set to mutable to make customizable
+    public static int DELAY = 500;
+    public static int TOTAL_DURATION = 1000;
+    public static final int MAX_DELAY = 1000;
+    public static final int MAX_DURATION = 1000;
+    
+    
     // size
     public static final float SIZE__SMALL = 0.7f;
     public static final float SIZE__BIG = 1.25f;
     public static final float SIZE__REG = 1;						// original size
-    public static final int ZOOM__DURATION = TOTAL_DURATION;  		// ms
-    public static final int PULSE__DELAY = 300;  		
-    public static final int PULSE__1STHALF_DURATION = PULSE__DELAY;
-    public static final int PULSE__2NDHALF_DURATION = TOTAL_DURATION - PULSE__1STHALF_DURATION;
+    // public static final int ZOOM__DURATION = TOTAL_DURATION;  	// commented out because we are using TOTAL_DURATION anyways
+    // public static final int PULSE__DELAY = 300;  				// commented out, deprecated
+    
+    // set to mutable because TOTAL_DURATION has been made mutable
+    public static int PULSE__1STHALF_DURATION = (TOTAL_DURATION / 2);
+    public static int PULSE__2NDHALF_DURATION = TOTAL_DURATION - PULSE__1STHALF_DURATION;
     // rotation
     public static final float DEGREE_BIG = 15f;	 			// rotate from 0 to -60 is counterclockwise rotation; 60f as 60 degree
     public static final float DEGREE_SMALL = -DEGREE_BIG;	// [AP] wouldn't it always be - DEGREE_SMALL?
@@ -42,9 +57,10 @@ public class Parameters {
     
     public static final int TWIST_REPEAT_NUM = 1;
     
-    public static final int TWIST__0THDURATION = (int)((((float)TWIST__0THDURATION_REL)/((float)(TWIST_REPEAT_NUM * TWIST_TOTAL_REL_DURATION)))*((float)TOTAL_DURATION));
-    public static final int TWIST__1STDURATION = (int)((((float)TWIST__1STDURATION_REL)/((float)(TWIST_REPEAT_NUM * TWIST_TOTAL_REL_DURATION)))*((float)TOTAL_DURATION));
-    public static final int TWIST__2NDDURATION = (int)((((float)TWIST__2NDDURATION_REL)/((float)(TWIST_REPEAT_NUM * TWIST_TOTAL_REL_DURATION)))*((float)TOTAL_DURATION));
+    // set to mutable because TOTAL_DURATION has been made mutable
+    public static int TWIST__0THDURATION = (int)((((float)TWIST__0THDURATION_REL)/((float)(TWIST_REPEAT_NUM * TWIST_TOTAL_REL_DURATION)))*((float)TOTAL_DURATION));
+    public static int TWIST__1STDURATION = (int)((((float)TWIST__1STDURATION_REL)/((float)(TWIST_REPEAT_NUM * TWIST_TOTAL_REL_DURATION)))*((float)TOTAL_DURATION));
+    public static int TWIST__2NDDURATION = (int)((((float)TWIST__2NDDURATION_REL)/((float)(TWIST_REPEAT_NUM * TWIST_TOTAL_REL_DURATION)))*((float)TOTAL_DURATION));
     
     
     // transparency

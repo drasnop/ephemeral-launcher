@@ -25,26 +25,31 @@ public class Animation {
 		}
 		
 	}
+	
+	// ------------------------------------------
+	// --- this method is not called at all!! ---
 	public static void color(Icon icon){
 		animatorList.add(Effects.changeToColor(icon));
 	};
+	// ------------------------------------------
+	// ------------------------------------------
 	
 	public static void zoom_in(Icon icon){
-		animatorList.add(Effects.changeSize(icon,Parameters.ZOOM__DURATION,Parameters.DELAY,Parameters.SIZE__SMALL,Parameters.SIZE__REG));
+		animatorList.add(Effects.changeSize(icon,Parameters.TOTAL_DURATION,Parameters.DELAY,Parameters.SIZE__SMALL,Parameters.SIZE__REG));
 	}
 	
 	public static void zoom_out(Icon icon){
-		animatorList.add(Effects.changeSize(icon,Parameters.ZOOM__DURATION,Parameters.DELAY,Parameters.SIZE__BIG,Parameters.SIZE__REG));
+		animatorList.add(Effects.changeSize(icon,Parameters.TOTAL_DURATION,Parameters.DELAY,Parameters.SIZE__BIG,Parameters.SIZE__REG));
 	}
 	
 	public static void pulse_in(Icon icon){
 		animatorList.add(Effects.changeSize(icon,Parameters.PULSE__1STHALF_DURATION,Parameters.DELAY,Parameters.SIZE__REG,Parameters.SIZE__SMALL));
-		animatorList.add(Effects.changeSize(icon,Parameters.PULSE__2NDHALF_DURATION,Parameters.PULSE__DELAY,Parameters.SIZE__SMALL,Parameters.SIZE__REG));
+		animatorList.add(Effects.changeSize(icon,Parameters.PULSE__2NDHALF_DURATION,(Parameters.PULSE__1STHALF_DURATION + Parameters.DELAY),Parameters.SIZE__SMALL,Parameters.SIZE__REG));
 	}
 	
 	public static void pulse_out(Icon icon){
 		animatorList.add(Effects.changeSize(icon,Parameters.PULSE__1STHALF_DURATION,Parameters.DELAY,Parameters.SIZE__REG,Parameters.SIZE__BIG));
-		animatorList.add(Effects.changeSize(icon,Parameters.PULSE__2NDHALF_DURATION,Parameters.PULSE__DELAY,Parameters.SIZE__BIG,Parameters.SIZE__REG));
+		animatorList.add(Effects.changeSize(icon,Parameters.PULSE__2NDHALF_DURATION,(Parameters.PULSE__1STHALF_DURATION + Parameters.DELAY),Parameters.SIZE__BIG,Parameters.SIZE__REG));
 	}
 	
 	public static void twist(Icon icon){
@@ -84,11 +89,11 @@ public class Animation {
 	
 	
 	public static void fadeIn(Icon icon){
-		animatorList.add(Effects.fadeIn(icon,Parameters.TRANSPARENCY__DURATION,Parameters.TRANSPARENCY__DELAY,Parameters.TRANSPARENCY__INTIAL,1f));
+		animatorList.add(Effects.fadeIn(icon,Parameters.TOTAL_DURATION,Parameters.DELAY,Parameters.TRANSPARENCY__INTIAL,1f));
 	};
 	
 	public static void disappear(Icon icon){
-		animatorList.add(Effects.fadeOut(icon, 0, 0,1f,Parameters.TRANSPARENCY__INTIAL));
+		animatorList.add(Effects.fadeOut(icon, Parameters.TOTAL_DURATION, Parameters.DELAY,1f,Parameters.TRANSPARENCY__INTIAL));
 	}
 	
 	public static void blur(Icon icon){

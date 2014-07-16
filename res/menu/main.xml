@@ -33,6 +33,10 @@
           android:title="@string/twist"
           android:showAsAction="never" /> 
           
+    <item android:id="@+id/change_param"
+          android:title="@string/change_param"
+          android:showAsAction="never" />
+          
     <item android:id="@+id/change_bkg"
           android:title="@string/change_bkg"
           android:showAsAction="never" /> 

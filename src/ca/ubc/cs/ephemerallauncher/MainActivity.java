@@ -2,6 +2,7 @@ package ca.ubc.cs.ephemerallauncher;
 
 import java.util.ArrayList;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -118,6 +119,12 @@ public class MainActivity extends FragmentActivity {
 	        case R.id.blur:
 	        	Parameters.switchAnimationTo(AnimationType.BLUR,pagerAdapter);
 	            return true;
+	        case R.id.change_param:
+	        	Intent i = new Intent(MainActivity.this, SetupActivity.class);
+	        	i.putExtra(SetupActivity.EXTRA_DELAY, Parameters.DELAY);
+	        	i.putExtra(SetupActivity.EXTRA_DURATION, Parameters.TOTAL_DURATION);
+	        	startActivityForResult(i,0);
+	        	return true;
 	        case R.id.change_bkg:
 	        	switch(Parameters.BACKGROUND){
 	        	case 0:
@@ -139,4 +146,16 @@ public class MainActivity extends FragmentActivity {
 	            return super.onOptionsItemSelected(item);
 	    }
 	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (data == null){
+			return;
+		}
+		Parameters.DELAY = (Integer) data.getSerializableExtra(SetupActivity.EXTRA_DELAY);
+		Parameters.TOTAL_DURATION = (Integer) data.getSerializableExtra(SetupActivity.EXTRA_DURATION);
+		Parameters.propagateParameters();
+	}
+	
+	
 }

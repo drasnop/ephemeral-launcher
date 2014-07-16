@@ -149,8 +149,7 @@ public class AnimatedGridView extends GridView {
 		switch (Parameters.ANIMATION) {
 		case COLOR:
 		case BLUR:
-			Effects.changeToColor(this.getIcon(position), Parameters.COLOR__FADE_IN_DURATION,
-					Parameters.COLOR__START_DELAY);
+			Effects.changeToColor(this.getIcon(position), Parameters.TOTAL_DURATION, Parameters.DELAY);
 			break;
 		case TRANSPARENCY:
 			if (isDifferentFromAllHighlighted(position))
