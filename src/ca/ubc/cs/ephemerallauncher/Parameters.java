@@ -28,8 +28,8 @@ public class Parameters {
 
 	// for highlighted icons
     // set to mutable to make customizable
-    public static int DELAY = 500;
-    public static int TOTAL_DURATION = 1000;
+    public static int DELAY = 0;
+    public static int TOTAL_DURATION = 600;
     public static final int MAX_DELAY = 1000;
     public static final int MAX_DURATION = 1000;
     
