@@ -14,10 +14,13 @@
     <string name="blur">Blur</string>
     <string name="color_blur">Color+blur</string>
     <string name="twist">Twist</string>
-    <string name="change_param">Change timing parameters</string>
+    <string name="change_param">Change parameters</string>
     <string name="change_bkg">Change background</string>
-    <string name="delay_message">Scroll to change the value of delay.</string>
-    <string name="duration_message">Scroll to change the value of duration.</string>
+    <string name="delay_message">Delay</string>
+    <string name="duration_message">Duration</string>
+    <string name="size_message">Size</string>
+    <string name="rotation_message">Rotation</string>
+    <string name="num_message">Highlighted Icons</string>
     <string name="ok_button">OK</string>
   
     <string name="icon_0_cap">icon 0</string>

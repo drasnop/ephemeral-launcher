@@ -43,21 +43,27 @@ public class AnimatedGridView extends GridView {
 	}
 
 	public void startPreAnimation() {
-
-/*		ArrayList<Integer> positions = new ArrayList<Integer>();
+	
+	if (highlightedIcons.length != Parameters.NUM_HIGHLIGHTED_ICONS)
+		highlightedIcons = new int [Parameters.NUM_HIGHLIGHTED_ICONS];
+		
+	// This randomize the highlighted icons per page	
+    ArrayList<Integer> positions = new ArrayList<Integer>();
 		for (int i = 0; i < Parameters.NUM_ICONS_PER_PAGE; i++)
 			positions.add(i);
 		
 		Collections.shuffle(positions);
 		
 		for(int i=0; i<Parameters.NUM_HIGHLIGHTED_ICONS;i++)
-			highlightedIcons[i] = positions.get(i);	*/
+			highlightedIcons[i] = positions.get(i);	
 
 		// For the video version only, use always the same four icons
+		/*
 		highlightedIcons[0]=3;
 		highlightedIcons[1]=6;
 		highlightedIcons[2]=8;
 		highlightedIcons[3]=14;		
+		*/
 		
 		if (Parameters.ANIMATION_HAS_PREANIMATION_STATE)
 			startPreAnimationAllIcons();

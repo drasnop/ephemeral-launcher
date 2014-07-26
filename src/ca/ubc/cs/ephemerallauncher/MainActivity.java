@@ -123,6 +123,9 @@ public class MainActivity extends FragmentActivity {
 	        	Intent i = new Intent(MainActivity.this, SetupActivity.class);
 	        	i.putExtra(SetupActivity.EXTRA_DELAY, Parameters.DELAY);
 	        	i.putExtra(SetupActivity.EXTRA_DURATION, Parameters.TOTAL_DURATION);
+	        	i.putExtra(SetupActivity.EXTRA_SIZE, Parameters.SIZE_INCREMENT);
+	        	i.putExtra(SetupActivity.EXTRA_ROTATION,Parameters.DEGREE_INCREMENT);
+	        	i.putExtra(SetupActivity.EXTRA_HIGHLIGHTED_ICONS,Parameters.NUM_HIGHLIGHTED_ICONS);
 	        	startActivityForResult(i,0);
 	        	return true;
 	        case R.id.change_bkg:
@@ -154,7 +157,12 @@ public class MainActivity extends FragmentActivity {
 		}
 		Parameters.DELAY = (Integer) data.getSerializableExtra(SetupActivity.EXTRA_DELAY);
 		Parameters.TOTAL_DURATION = (Integer) data.getSerializableExtra(SetupActivity.EXTRA_DURATION);
+		Parameters.SIZE_INCREMENT = (Integer)data.getSerializableExtra(SetupActivity.EXTRA_SIZE);
+		Parameters.DEGREE_INCREMENT = (Integer)data.getSerializableExtra(SetupActivity.EXTRA_ROTATION);
+		Parameters.NUM_HIGHLIGHTED_ICONS = (Integer)data.getSerializableExtra(SetupActivity.EXTRA_HIGHLIGHTED_ICONS);
+		Parameters.resetSizeAndRotation();
 		Parameters.propagateParameters();
+		
 	}
 	
 	

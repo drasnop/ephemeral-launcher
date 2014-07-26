@@ -10,11 +10,25 @@ public class Parameters {
 	    TWIST__2NDDURATION = (int)((((float)TWIST__2NDDURATION_REL)/((float)(TWIST_REPEAT_NUM * TWIST_TOTAL_REL_DURATION)))*((float)TOTAL_DURATION));
 	    PULSE__1STHALF_DURATION = (TOTAL_DURATION / 2);
 	    PULSE__2NDHALF_DURATION = TOTAL_DURATION - PULSE__1STHALF_DURATION;
+	    SIZE__SMALL = (float)1 - ((float)((float)SIZE_INCREMENT / (float)100));
+	    SIZE__BIG = (float)1 + ((float)((float)SIZE_INCREMENT / (float)100));
+	    DEGREE_BIG = (float)DEGREE_INCREMENT;
+	    DEGREE_SMALL = -DEGREE_BIG;
 	}
 
+	public static void resetSizeAndRotation(){
+		 SIZE__SMALL = 0.7f;
+		 SIZE__BIG = 1.3f;
+		 DEGREE_BIG = 20f;	 
+		 DEGREE_SMALL = -DEGREE_BIG;
+	}
+	
+	
     public static final int NUM_PAGES = 6;
     public static final int NUM_ICONS_PER_PAGE = 20;
-    public static final int NUM_HIGHLIGHTED_ICONS = 4;
+    // made mutable for customization too
+    public static int NUM_HIGHLIGHTED_ICONS = 4;
+    public static final int MAX_HIGHLIGHTED_ICONS = 6;
     public static AnimationType ANIMATION = AnimationType.COLOR;		// Will be used as initial animation type
     public static boolean ANIMATION_AFFECTS_OTHER_ICONS;				// Will be initialized automatically
     public static boolean ANIMATION_HAS_PREANIMATION_STATE;				// Will be initialized automatically
@@ -35,8 +49,11 @@ public class Parameters {
     
     
     // size
-    public static final float SIZE__SMALL = 0.7f;
-    public static final float SIZE__BIG = 1.25f;
+    // some made mutable to enable customization
+    public static final int MAX_SIZE = 100;
+    public static int SIZE_INCREMENT = 30;
+    public static float SIZE__SMALL = 0.7f; 
+    public static float SIZE__BIG = 1.3f;  
     public static final float SIZE__REG = 1;						// original size
     // public static final int ZOOM__DURATION = TOTAL_DURATION;  	// commented out because we are using TOTAL_DURATION anyways
     // public static final int PULSE__DELAY = 300;  				// commented out, deprecated
@@ -45,8 +62,11 @@ public class Parameters {
     public static int PULSE__1STHALF_DURATION = (TOTAL_DURATION / 2);
     public static int PULSE__2NDHALF_DURATION = TOTAL_DURATION - PULSE__1STHALF_DURATION;
     // rotation
-    public static final float DEGREE_BIG = 15f;	 			// rotate from 0 to -60 is counterclockwise rotation; 60f as 60 degree
-    public static final float DEGREE_SMALL = -DEGREE_BIG;	// [AP] wouldn't it always be - DEGREE_SMALL?
+    // some made mutable to enable customization
+    public static final int MAX_DEGREE = 180;
+    public static int DEGREE_INCREMENT = 20;
+    public static float DEGREE_BIG = 20f;	 			// rotate from 0 to -60 is counterclockwise rotation; 60f as 60 degree
+    public static float DEGREE_SMALL = -DEGREE_BIG;	// [AP] wouldn't it always be - DEGREE_SMALL?
     public static final float DEGREE_REG = 0f;
     public static final int TWIST__DELAY = 400;
     public static final int TWIST__0THDURATION_REL = 1;

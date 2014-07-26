@@ -52,7 +52,7 @@ public class Effects {
 	}
 	public static Animator fadeOut(Icon icon, int durationMs, int delayMs, float... value){
 		AnimatorSet animatorSet = new AnimatorSet();
-		animatorSet.playTogether(animateObjectProperty(icon.getImage(), "alpha", durationMs, delayMs, value),animateObjectProperty(icon.getCaption(), "alpha", durationMs, delayMs, value));
+		animatorSet.playTogether(animateObjectProperty(icon.getImage(), "alpha", 0, 0, value),animateObjectProperty(icon.getCaption(), "alpha", durationMs, delayMs, value));
 		return animatorSet;
 	}
 	
